@@ -459,7 +459,8 @@
     <div id="exitContent">
       <p class="exit-tag">Wait — Before You Go</p>
       <h3 class="exit-hl">Not Ready<br>To Start<br>Today?</h3>
-      <p class="exit-sub">Lock in your <strong>$0-down slot for 48 hours</strong> without committing. Enter your email to reserve your spot. No payment. No obligation.</p>
+      <p class="exit-sub">Lock in your <strong>$0-down slot for 48 hours</strong> without committing. Enter your details to reserve your spot. No payment. No obligation.</p>
+      <input class="exit-input" type="text" id="exitName" placeholder="Your name" oninput="validateExitEmail()">
       <input class="exit-input" type="email" id="exitEmail" placeholder="your@email.com" oninput="validateExitEmail()">
       <button class="exit-submit" id="exitSubmit" disabled onclick="submitExitEmail()">Hold My Slot.</button>
       <p class="exit-trust">No spam. No commitment. Slot held for 48 hours.</p>
@@ -502,7 +503,9 @@
     <div class="m-step" id="mStep3">
       <p class="m-tag">Step 3 of 3 — Claim Your Spot</p>
       <h3 class="m-hl">Last Step.<br>Claim Your<br>$0-Down Build.</h3>
-      <p class="m-sub">Your spot is being held. Enter your email to lock it in.</p>
+      <p class="m-sub">Your spot is being held. Enter your details to lock it in.</p>
+      <label class="m-label">Your Name *</label>
+      <input class="m-input" type="text" id="modalName" placeholder="Jane Doe" oninput="validateModalEmail()">
       <label class="m-label">Email Address *</label>
       <input class="m-input" type="email" id="modalEmail" placeholder="you@company.com" oninput="validateModalEmail()">
       <button class="m-btn" id="modalSubmit" disabled onclick="submitModal()">Claim My $0-Down Build →</button>
@@ -566,13 +569,14 @@
 
   function closeExitModal() { document.getElementById('exitModal').classList.add('hidden'); }
   document.getElementById('exitModal').addEventListener('click', function(e) { if (e.target === this) closeExitModal(); });
-  function validateExitEmail() { const v = document.getElementById('exitEmail').value; document.getElementById('exitSubmit').disabled = !(v.includes('@') && v.includes('.')); }
+  function validateExitEmail() { const e = document.getElementById('exitEmail').value; const n = document.getElementById('exitName').value.trim(); document.getElementById('exitSubmit').disabled = !(e.includes('@') && e.includes('.') && n.length > 1); }
   function submitExitEmail() {
+    const name = document.getElementById('exitName').value;
     const email = document.getElementById('exitEmail').value;
-    fetch('https://formsubmit.co/ajax/turlea@webars.at', {
+    fetch('https://crm.webars.at/api/leads/everadam-website?key=gty2zsDM0CbZbItSdagCmnxoMs8VekpB', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email, _subject: 'Slot Hold Request — Everadam' })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, source: 'everadam-website-exit-popup' })
     }).catch(() => {});
     if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'form', event_label: 'exit_popup' });
     sessionStorage.setItem('ea-popup', '1');
@@ -597,15 +601,16 @@
   let _industry = '', _goal = '';
   function pickIndustry(val) { _industry = val; document.querySelectorAll('#mStep1 .m-pill').forEach(p => p.classList.remove('on')); event.target.classList.add('on'); setTimeout(() => setModalStep(2), 320); }
   function pickGoal(val) { _goal = val; document.querySelectorAll('#mStep2 .m-pill').forEach(p => p.classList.remove('on')); event.target.classList.add('on'); setTimeout(() => setModalStep(3), 320); }
-  function validateModalEmail() { const v = document.getElementById('modalEmail').value; document.getElementById('modalSubmit').disabled = !(v.includes('@') && v.includes('.')); }
+  function validateModalEmail() { const e = document.getElementById('modalEmail').value; const n = document.getElementById('modalName').value.trim(); document.getElementById('modalSubmit').disabled = !(e.includes('@') && e.includes('.') && n.length > 1); }
   function submitModal() {
+    const name = document.getElementById('modalName').value;
     const email = document.getElementById('modalEmail').value;
     const btn = document.getElementById('modalSubmit');
     btn.disabled = true; btn.textContent = 'Sending…';
-    fetch('https://formsubmit.co/ajax/turlea@webars.at', {
+    fetch('https://crm.webars.at/api/leads/everadam-website?key=gty2zsDM0CbZbItSdagCmnxoMs8VekpB', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email, industry: _industry, goal: _goal, _subject: 'New $300 Website Lead — Everadam' })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, industry: _industry, goal: _goal, source: 'everadam-website-cta' })
     }).catch(() => {}).finally(() => {
       if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'form', event_label: 'cta_modal' });
       sessionStorage.setItem('ea-popup', '1');
