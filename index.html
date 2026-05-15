@@ -68,8 +68,6 @@
     .btn-sm:hover { filter: brightness(.88); }
     .btn-inv { background: #fff; color: var(--accent); padding: 20px 44px; font-size: 17px; }
     .btn-inv:hover { filter: brightness(.96); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: var(--txt-dk); padding: 18px 36px; font-size: 16px; border: 1.5px solid var(--brd-dk); }
-    .btn-ghost:hover { border-color: var(--accent); color: #fff; }
 
     /* Hero */
     .hero { background: radial-gradient(ellipse 70% 60% at 30% 70%, color-mix(in srgb, var(--accent) 9%, transparent) 0%, transparent 65%), var(--bg-dk); min-height: 100vh; padding: 130px 48px 100px; display: flex; align-items: center; position: relative; overflow: hidden; }
@@ -86,6 +84,22 @@
     .hero-stat:hover { background: rgba(255,255,255,.04); }
     .hero-stat-n { font-family: var(--fh); font-weight: 900; font-size: 38px; color: var(--accent); line-height: 1; margin-bottom: 7px; }
     .hero-stat-l { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--txt-dk2); line-height: 1.3; }
+
+    /* Hero badge — rotating dashed ring (bottom-right) */
+    .badge-ring { position: absolute; bottom: 48px; right: 48px; display: flex; align-items: center; justify-content: center; width: 152px; height: 152px; border-radius: 50%; border: 2px dashed color-mix(in srgb, var(--accent) 40%, transparent); animation: badgeSpin 22s linear infinite; }
+    .badge-core { width: 130px; height: 130px; border-radius: 50%; background: var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotate(15deg); animation: badgeWobble 22s linear infinite; }
+    .badge-main { font-family: var(--fh); font-weight: 900; font-size: 30px; color: #fff; line-height: 1; }
+    .badge-sub { font-size: 9px; font-weight: 700; color: rgba(255,255,255,.88); letter-spacing: .08em; text-transform: uppercase; line-height: 1.4; margin-top: 3px; }
+    @keyframes badgeSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes badgeWobble { from { transform: rotate(15deg); } to { transform: rotate(-345deg); } }
+
+    /* Ticker */
+    .ticker { background: var(--bg-dk2); border-top: 1px solid var(--brd-dk); border-bottom: 1px solid var(--brd-dk); padding: 15px 0; overflow: hidden; }
+    .ticker-track { display: flex; animation: ticker-anim 36s linear infinite; white-space: nowrap; }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item { font-family: var(--fh); font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--txt-dk2); padding: 0 36px; flex-shrink: 0; }
+    .ticker-dot { color: var(--accent); margin: 0 4px; }
+    @keyframes ticker-anim { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* Sections */
     .sec { padding: 104px 48px; }
@@ -115,26 +129,6 @@
     .step-body { font-size: 15px; line-height: 1.68; color: var(--txt-dk2); }
     .step-pill { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px; margin-top: 20px; }
 
-    /* Mockups */
-    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .work-card { background: var(--bg-dk2); border: 1px solid var(--brd-dk); overflow: hidden; transition: border-color .25s, transform .25s; }
-    .work-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .work-mock { position: relative; aspect-ratio: 16/10; background: linear-gradient(135deg, #1a1a22 0%, #0d0d12 100%); border-bottom: 1px solid var(--brd-dk); overflow: hidden; }
-    .work-mock-bar0 { position: absolute; top: 0; left: 0; right: 0; height: 22px; background: rgba(255,255,255,.04); border-bottom: 1px solid var(--brd-dk); display: flex; align-items: center; padding: 0 10px; gap: 5px; }
-    .work-mock-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.16); }
-    .work-mock-body { position: absolute; top: 22px; left: 0; right: 0; bottom: 0; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .work-mock-l { height: 8px; background: rgba(255,255,255,.06); }
-    .work-mock-l.acc { background: color-mix(in srgb, var(--accent) 60%, transparent); }
-    .work-mock-l.s { width: 40%; } .work-mock-l.m { width: 70%; }
-    .work-mock-blk { flex: 1; background: rgba(255,255,255,.04); margin-top: 6px; }
-    .work-mock-ph { position: absolute; bottom: 8px; right: 10px; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.22); }
-    .work-info { padding: 22px 24px 26px; }
-    .work-cat { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .work-title { font-family: var(--fh); font-size: 22px; font-weight: 800; text-transform: uppercase; color: var(--txt-dk); line-height: 1.05; margin-bottom: 10px; }
-    .work-desc { font-size: 13px; line-height: 1.55; color: var(--txt-dk2); }
-    .work-caption { font-size: 13px; color: var(--txt-dk2); margin-top: 28px; text-align: center; }
-    .work-caption strong { color: var(--txt-dk); }
-
     /* Comparison */
     .cmp { border: 1px solid var(--brd-dk); overflow: hidden; }
     .cmp-heads { display: grid; grid-template-columns: 1fr 1fr; }
@@ -149,33 +143,37 @@
     .cmp-x { color: #EF4444; font-weight: 700; font-size: 15px; flex-shrink: 0; }
     .cmp-chk { color: var(--accent); font-weight: 700; font-size: 15px; flex-shrink: 0; }
 
-    /* Pricing transparency */
-    .price-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 1px; background: var(--brd-lt); border: 1px solid var(--brd-lt); }
-    .price-col { background: #fff; padding: 36px 36px 40px; }
-    .price-col.in { background: #fff; }
-    .price-col.out { background: var(--bg-lt2); }
-    .price-col-tag { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .price-col.out .price-col-tag { color: var(--txt-lt2); }
-    .price-col-hl { font-family: var(--fh); font-size: 28px; font-weight: 900; text-transform: uppercase; color: var(--txt-lt); line-height: 1.05; margin-bottom: 22px; }
-    .price-list { display: flex; flex-direction: column; gap: 14px; }
-    .price-item { display: flex; gap: 14px; align-items: flex-start; font-size: 15px; line-height: 1.55; color: var(--txt-lt); }
-    .price-item .ic { width: 20px; height: 20px; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-    .price-col.out .price-item .ic { background: var(--txt-lt2); }
-    .price-item strong { font-weight: 600; }
-    .price-headline { font-family: var(--fh); font-size: clamp(54px,7vw,86px); font-weight: 900; text-transform: uppercase; color: var(--txt-lt); line-height: .9; margin-bottom: 18px; }
-    .price-headline .ac { color: var(--accent); }
-    .price-tagline { font-size: 17px; line-height: 1.65; color: var(--txt-lt2); max-width: 620px; margin-bottom: 44px; }
-    .price-tagline strong { color: var(--txt-lt); font-weight: 600; }
+    /* Mockups — 2-column with first spanning full width */
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .work-grid > .work-card:first-child { grid-column: 1 / -1; }
+    .work-card { background: var(--bg-dk); border: 1px solid var(--brd-dk); overflow: hidden; transition: border-color .25s, transform .25s; }
+    .work-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .work-mock { position: relative; aspect-ratio: 16/11; background: linear-gradient(135deg, #1a1a22 0%, #0d0d12 100%); border-bottom: 1px solid var(--brd-dk); overflow: hidden; }
+    .work-grid > .work-card:first-child .work-mock { aspect-ratio: 21/9; }
+    .work-mock-bar0 { position: absolute; top: 0; left: 0; right: 0; height: 22px; background: rgba(255,255,255,.04); border-bottom: 1px solid var(--brd-dk); display: flex; align-items: center; padding: 0 10px; gap: 5px; }
+    .work-mock-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.16); }
+    .work-mock-body { position: absolute; top: 22px; left: 0; right: 0; bottom: 0; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+    .work-mock-l { height: 8px; background: rgba(255,255,255,.06); }
+    .work-mock-l.acc { background: color-mix(in srgb, var(--accent) 60%, transparent); }
+    .work-mock-l.s { width: 40%; } .work-mock-l.m { width: 70%; }
+    .work-mock-blk { flex: 1; background: rgba(255,255,255,.04); margin-top: 6px; }
+    .work-mock-ph { position: absolute; bottom: 8px; right: 10px; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+    .work-info { padding: 24px 28px 28px; }
+    .work-cat { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .work-title { font-family: var(--fh); font-size: 24px; font-weight: 800; text-transform: uppercase; color: var(--txt-dk); line-height: 1.05; margin-bottom: 10px; }
+    .work-desc { font-size: 14px; line-height: 1.6; color: var(--txt-dk2); }
+    .work-caption { font-size: 13px; color: var(--txt-dk2); margin-top: 32px; text-align: center; }
+    .work-caption strong { color: var(--txt-dk); }
 
-    /* Leave / lock-in transparency */
-    .leave-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--brd-dk); }
-    .leave-card { background: var(--bg-dk); padding: 40px 34px; border-top: 2px solid var(--accent); }
-    .leave-num { font-family: var(--fh); font-size: 14px; font-weight: 900; color: var(--accent); letter-spacing: .14em; margin-bottom: 18px; }
-    .leave-title { font-family: var(--fh); font-size: 24px; font-weight: 800; text-transform: uppercase; color: var(--txt-dk); line-height: 1.1; margin-bottom: 12px; }
-    .leave-body { font-size: 15px; line-height: 1.7; color: var(--txt-dk2); }
-    .leave-body strong { color: var(--txt-dk); font-weight: 600; }
-    .leave-note { margin-top: 36px; padding: 22px 28px; background: var(--bg-dk2); border-left: 3px solid var(--accent); font-size: 14px; line-height: 1.65; color: var(--txt-dk2); }
-    .leave-note strong { color: var(--txt-dk); }
+    /* Benefits */
+    .ben-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .ben-item { padding: 26px 30px; border-bottom: 1px solid var(--brd-dk); border-right: 1px solid var(--brd-dk); display: flex; gap: 18px; align-items: flex-start; transition: background .2s; }
+    .ben-item:hover { background: rgba(255,255,255,.02); }
+    .ben-item:nth-child(2n) { border-right: none; }
+    .ben-item:nth-last-child(-n+2) { border-bottom: none; }
+    .ben-check { width: 22px; height: 22px; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .ben-title { font-size: 15px; font-weight: 600; color: var(--txt-dk); margin-bottom: 3px; }
+    .ben-desc { font-size: 13px; line-height: 1.55; color: var(--txt-dk2); }
 
     /* Testimonials */
     .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
@@ -197,9 +195,10 @@
     .faq-icon { width: 18px; height: 18px; flex-shrink: 0; transition: transform .25s; color: var(--accent); }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease; padding: 0 32px; }
-    .faq-item.open .faq-a { max-height: 380px; padding: 0 32px 26px; }
+    .faq-item.open .faq-a { max-height: 420px; padding: 0 32px 26px; }
     .faq-a p { font-size: 15px; line-height: 1.72; color: var(--txt-dk2); }
     .faq-a p strong { color: var(--txt-dk); font-weight: 600; }
+    .faq-a p a { color: var(--accent); }
 
     /* Urgency / Final */
     .scar-inner { display: flex; gap: 64px; align-items: center; }
@@ -304,15 +303,21 @@
       .hero { padding: 100px 22px 92px; min-height: auto; }
       .hero-bottom { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
       .hero-stats { grid-template-columns: repeat(2,1fr); align-self: stretch; }
+      .badge-ring { display: none; }
       .sec { padding: 68px 22px; }
       .nav { padding: 14px 22px; }
       .footer { padding: 36px 22px 28px; }
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
       .footer-cta-btn { width: 100%; text-align: center; }
-      .pain-grid, .steps, .work-grid, .leave-grid { grid-template-columns: 1fr; }
+      .pain-grid, .steps, .work-grid { grid-template-columns: 1fr; }
+      .work-grid > .work-card:first-child { grid-column: auto; }
+      .work-grid > .work-card:first-child .work-mock { aspect-ratio: 16/11; }
+      .ben-grid { grid-template-columns: 1fr; }
+      .ben-item { border-right: none !important; }
+      .ben-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--brd-dk); }
+      .ben-item:last-child { border-bottom: none; }
       .testi-grid { grid-template-columns: 1fr; }
       .cmp-head, .cmp-cell { padding: 14px 18px; font-size: 13px; }
-      .price-grid { grid-template-columns: 1fr; }
       .scar-inner { flex-direction: column; gap: 8px; text-align: center; }
       .scar-count { font-size: 80px; }
       .scar-body { margin: 0 auto 32px; }
@@ -335,12 +340,12 @@
   <p class="sb-text">
     <strong>Free Mockups This Week:</strong> 7 of 10 left.
   </p>
-  <a class="sb-link" onclick="openModal()">Claim mine →</a>
+  <a class="sb-link" onclick="openModal()">Get My Free Mockup &rarr;</a>
 </div>
 
 <nav class="nav" id="mainNav">
   <div class="nav-logo">EverAdam</div>
-  <button class="btn btn-sm" onclick="openModal()">Get My Free Mockup →</button>
+  <button class="btn btn-sm" onclick="openModal()">Get My Free Mockup &rarr;</button>
 </nav>
 
 <!-- HERO -->
@@ -359,21 +364,32 @@
         <p class="hero-sub">
           Tell us your business. In <strong>48 hours</strong> we'll send you a real, clickable website mockup &mdash; designed for your industry, your city, your customers. Love it? Make it live for <strong>$100/month, all-in</strong> &mdash; hosting, updates, security, the works. Don't love it? <strong>Pay nothing. Walk away.</strong>
         </p>
-        <button class="btn btn-primary" onclick="openModal()">Request My Free Mockup &rarr;</button>
+        <button class="btn btn-primary" onclick="openModal()">Get My Free Mockup &rarr;</button>
         <p class="hero-trust">No credit card today &nbsp;&middot;&nbsp; No contract today &nbsp;&middot;&nbsp; 48h delivery</p>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-n">48h</div><div class="hero-stat-l">Mockup Delivery</div></div>
         <div class="hero-stat"><div class="hero-stat-n">$0</div><div class="hero-stat-l">Today</div></div>
         <div class="hero-stat"><div class="hero-stat-n">$100</div><div class="hero-stat-l">/Month All-In</div></div>
-        <div class="hero-stat"><div class="hero-stat-n">6mo</div><div class="hero-stat-l">Then Cancel Anytime</div></div>
+        <div class="hero-stat"><div class="hero-stat-n">0%</div><div class="hero-stat-l">Setup Fee</div></div>
       </div>
+    </div>
+  </div>
+  <div class="badge-ring">
+    <div class="badge-core">
+      <span class="badge-main">100%</span>
+      <span class="badge-sub">Risk-Free<br>Mockup</span>
     </div>
   </div>
 </section>
 
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
 <!-- PROBLEM -->
-<section class="sec sec-dk2">
+<section class="sec sec-dk2" style="padding-top:72px">
   <div class="sec-inner">
     <span class="sec-label">The Agency Trap</span>
     <h2 class="sec-hl">Why You Keep<br>Putting It Off.</h2>
@@ -421,7 +437,25 @@
         <span class="step-pill">$100/mo &middot; or $0</span>
       </div>
     </div>
-    <div style="text-align:center"><button class="btn btn-primary" onclick="openModal()">Request My Free Mockup &rarr;</button></div>
+    <div style="text-align:center"><button class="btn btn-primary" onclick="openModal()">Get My Free Mockup &rarr;</button></div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="sec sec-dk">
+  <div class="sec-inner">
+    <span class="sec-label">Us vs. Them</span>
+    <h2 class="sec-hl">The Only<br>Comparison<br>That Matters.</h2>
+    <div class="cmp reveal">
+      <div class="cmp-heads"><div class="cmp-head bad">Traditional Agency</div><div class="cmp-head good">EverAdam $100/mo Plan</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>$5,000&ndash;$15,000 upfront</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>$0 to request &middot; $0 to see the mockup</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>8&ndash;16 weeks until you see anything</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Mockup in your inbox in 48 hours</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>Approve-and-pray &mdash; sight unseen</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>You see the finished design before paying a cent</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>Separate bills: hosting, SSL, updates, maintenance</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>$100/month flat &mdash; everything in one line</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>$150/hr for a typo fix</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Unlimited content updates &mdash; included</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>You wait weeks for a reply</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Avg. reply time: 4 hours on US business days</div></div>
+      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>They register your domain, hold the keys</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Your domain stays in your name, always</div></div>
+    </div>
   </div>
 </section>
 
@@ -488,80 +522,20 @@
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section class="sec sec-dk">
-  <div class="sec-inner">
-    <span class="sec-label">Us vs. Them</span>
-    <h2 class="sec-hl">The Only<br>Comparison<br>That Matters.</h2>
-    <div class="cmp reveal">
-      <div class="cmp-heads"><div class="cmp-head bad">Traditional Agency</div><div class="cmp-head good">EverAdam $100/mo Plan</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>$5,000&ndash;$15,000 upfront</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>$0 to request &middot; $0 to see the mockup</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>8&ndash;16 weeks until you see anything</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Mockup in your inbox in 48 hours</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>Approve-and-pray &mdash; sight unseen</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>You see the finished design before paying a cent</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>Separate bills: hosting, SSL, updates, maintenance</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>$100/month flat &mdash; everything in one line</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>$150/hr for a typo fix</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Unlimited content updates &mdash; included</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>You wait weeks for a reply</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>Avg. reply time: 4 hours on US business days</div></div>
-      <div class="cmp-row"><div class="cmp-cell bad"><span class="cmp-x">&#10005;</span>Locked into a 12-month "retainer" from day one</div><div class="cmp-cell good"><span class="cmp-chk">&#10003;</span>6-month minimum &middot; cancel anytime after</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING TRANSPARENCY -->
-<section class="sec sec-lt">
-  <div class="sec-inner">
-    <span class="sec-label">Pricing &mdash; All In</span>
-    <h2 class="price-headline">$100<span class="ac">/mo</span>.<br>Everything In.</h2>
-    <p class="price-tagline">No setup fee. No add-ons. No "but actually". One number, one invoice, every month. Here's exactly what that buys you &mdash; and what it doesn't.</p>
-    <div class="price-grid reveal">
-      <div class="price-col in">
-        <p class="price-col-tag">What's Included</p>
-        <h3 class="price-col-hl">In the $100/month:</h3>
-        <ul class="price-list">
-          <li class="price-item"><span class="ic"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Premium hosting</strong> on enterprise infrastructure &mdash; fast, redundant, US-based.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Free SSL</strong> + ongoing security monitoring and patches.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Unlimited content updates</strong> &mdash; text, images, hours, services, contact info. Email us, it's done.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Mobile + speed optimization</strong> against Google's Core Web Vitals &mdash; tuned every quarter.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Monthly performance report</strong> &mdash; traffic, leads, page speed, what's working.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Direct line to our team</strong> &mdash; one email, real human, no ticket portal.</span></li>
-        </ul>
-      </div>
-      <div class="price-col out">
-        <p class="price-col-tag">What's NOT Included</p>
-        <h3 class="price-col-hl">Honest about the limits:</h3>
-        <ul class="price-list">
-          <li class="price-item"><span class="ic"><svg width="10" height="2" viewBox="0 0 10 2" fill="none"><path d="M1 1h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><span><strong>Custom code beyond standard pages.</strong> Booking engines, e-commerce checkout, member portals &mdash; quoted separately, one-time.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="2" viewBox="0 0 10 2" fill="none"><path d="M1 1h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><span><strong>Domain registration.</strong> Your domain stays in your name, on your registrar account &mdash; you own it.</span></li>
-          <li class="price-item"><span class="ic"><svg width="10" height="2" viewBox="0 0 10 2" fill="none"><path d="M1 1h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><span><strong>Paid ads management.</strong> We build the site that converts the clicks. We don't run the Google/Meta campaigns themselves.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IF I WANT TO LEAVE -->
+<!-- BENEFITS -->
 <section class="sec sec-dk2">
   <div class="sec-inner">
-    <span class="sec-label">No Lock-In Lies</span>
-    <h2 class="sec-hl">What If I Want<br>To Leave?</h2>
-    <div class="leave-grid reveal">
-      <div class="leave-card">
-        <div class="leave-num">01 / Commitment</div>
-        <h3 class="leave-title">6 Months, Then You're Free.</h3>
-        <p class="leave-body">Your first 6 months are committed &mdash; that's how we cover the build cost since you paid nothing upfront. After month 6, <strong>cancel anytime with 30 days' notice.</strong> No renewal contracts. No automatic 12-month bumps.</p>
-      </div>
-      <div class="leave-card">
-        <div class="leave-num">02 / Exit Path</div>
-        <h3 class="leave-title">Walk Free &mdash; or Keep the Code.</h3>
-        <p class="leave-body">On cancellation you have two clean options: <strong>walk away for $0 and your site goes offline</strong>, or <strong>pay a one-time $497 export fee</strong> and we hand over every line of code, every design file, every asset. Your call. We don't hostage anyone's files.</p>
-      </div>
-      <div class="leave-card">
-        <div class="leave-num">03 / Domain</div>
-        <h3 class="leave-title">Your Domain Stays Yours.</h3>
-        <p class="leave-body">We never register your domain. <strong>It lives in your name, on your registrar account, paid by you.</strong> If you leave, your domain leaves with you &mdash; no transfer drama, no held credentials.</p>
-      </div>
-    </div>
-    <div class="leave-note reveal">
-      <strong>Why we tell you this on the homepage:</strong> the agency model survives on confusion. Our model only works if you're glad you stayed &mdash; so we make leaving as transparent as joining.
+    <span class="sec-label">What You Get</span>
+    <h2 class="sec-hl">Everything You<br>Need. Nothing<br>You Don't.</h2>
+    <div class="ben-grid reveal">
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Lightning-Fast Load Times</div><div class="ben-desc">Sub-2s loads, Core Web Vitals tuned.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Mobile-First Design</div><div class="ben-desc">Built for the 70%+ on phones.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Lead-Generation Focused</div><div class="ben-desc">Every element drives one action: contact you.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Conversion-Optimized Copy</div><div class="ben-desc">We write the words. No filler.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">SEO-Ready Structure</div><div class="ben-desc">Clean HTML, proper headings, meta &mdash; built in.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Hosting + SSL Included</div><div class="ben-desc">Enterprise infrastructure. No extra accounts.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Unlimited Content Updates</div><div class="ben-desc">Email us, it's done.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Your Domain Stays Yours</div><div class="ben-desc">Registered in your name. Always.</div></div></div>
     </div>
   </div>
 </section>
@@ -599,7 +573,7 @@
       <div class="testi-card">
         <p class="testi-placeholder">&#9888; Replace with real client quote</p>
         <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testi-quote">"What sold me was the leave page. Anyone willing to spell out the exit on the homepage usually has nothing to hide. Mockup nailed it on the first pass. I haven't thought about my website since."</p>
+        <p class="testi-quote">"What sold me was how upfront they were about the contract terms. Anyone willing to spell that out on the homepage usually has nothing to hide. Mockup nailed it on the first pass."</p>
         <div class="testi-author">
           <div class="testi-avi">[ ]</div>
           <div>
@@ -623,12 +597,16 @@
         <div class="faq-a"><p>Reply "pass." We part ways. <strong>You pay $0.</strong> No hard feelings, no follow-up nags, no marketing emails. The mockup files stay with us. That's the whole catch.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>Why is this so cheap compared to agencies?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><p>Three reasons. <strong>One:</strong> we start from battle-tested conversion frameworks, not blank canvases &mdash; so a designer's day is design, not setup. <strong>Two:</strong> we run lean &mdash; no account managers, no project managers, no overhead you'd pay for. <strong>Three:</strong> the $100/month model means we earn over time, not in one hit &mdash; so we can drop the upfront wall.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Am I locked into a long contract?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a"><p>After your free mockup, going live requires a <strong>6-month minimum</strong> &mdash; that's how we cover the build cost since you paid nothing upfront. After month 6, <strong>cancel anytime with 30 days' notice</strong>. No auto-renewals, no retention games.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>Can I see real examples first?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><p>Yes &mdash; scroll up to the <strong>Recent Mockups</strong> section. Those are real builds from last week. Want more? Reply to your mockup email and ask for industry-specific samples; we'll send what we have.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>What happens if I leave later?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a"><p>On cancellation you have two clean options: <strong>walk away for $0</strong> and your site goes offline at the end of your notice period, <strong>or pay a one-time $497 export fee</strong> and we hand over every line of code, every design file, every asset. Your call.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Who owns my domain?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a"><p><strong>You &mdash; always.</strong> We never register your domain. It lives in your name, on your own registrar account, paid by you. If you ever leave, your domain leaves with you.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>What if my needs are more complex?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
@@ -644,7 +622,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>Can I cancel anytime?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><p>After the <strong>6-month minimum</strong>, yes &mdash; with <strong>30 days' notice</strong>. Email <a href="mailto:contact@everadam.com" style="color:var(--accent)">contact@everadam.com</a> and we handle the rest. No retention call, no "are you sure" loop. On cancellation, the site goes offline at the end of the notice period &mdash; or you can pay the $497 export fee and keep the code.</p></div>
+        <div class="faq-a"><p>After the <strong>6-month minimum</strong>, yes &mdash; with <strong>30 days' notice</strong>. Email <a href="mailto:contact@everadam.com">contact@everadam.com</a> and we handle the rest. No retention call, no "are you sure" loop. On cancellation, the site goes offline at the end of the notice period &mdash; or you can pay the $497 export fee and keep the code.</p></div>
       </div>
     </div>
   </div>
@@ -659,7 +637,7 @@
         <div class="scar-warn">&#9888; This week's free mockups</div>
         <h2 class="scar-hl">Of 10 Slots<br>Still Open.</h2>
         <p class="scar-body">We hand-build every mockup, so we cap free mockups at <strong>10 per week</strong> &mdash; that's our actual delivery limit, not a marketing line. When this week's slots fill, you go on next week's list.</p>
-        <button class="btn btn-inv" onclick="openModal()">Claim My Free Mockup &rarr;</button>
+        <button class="btn btn-inv" onclick="openModal()">Get My Free Mockup &rarr;</button>
       </div>
     </div>
   </div>
@@ -670,7 +648,7 @@
     <span class="sec-label" style="text-align:center">The Decision</span>
     <h2 class="final-hl reveal">Still Reading?<br>That's Your<br><span style="color:var(--accent)">Answer.</span></h2>
     <p class="final-sub">A free mockup in 48 hours. Pay only if you love it. $100/month, all-in, after. There is no downside to seeing what we'd build for you.</p>
-    <button class="btn btn-primary" style="font-size:19px;padding:22px 52px" onclick="openModal()">Claim My Free Mockup &rarr;</button>
+    <button class="btn btn-primary" style="font-size:19px;padding:22px 52px" onclick="openModal()">Get My Free Mockup &rarr;</button>
     <p class="final-reply">Average reply time: 4 hours on US business days.</p>
   </div>
 </section>
@@ -707,7 +685,7 @@
     <h3 class="tpop-hl">Still On<br>The Fence?</h3>
     <div class="tpop-rule"></div>
     <p class="tpop-body">Here's the math: <strong>$0 today.</strong> We build your mockup. You review it. Love it? <strong>$100/month, all-in.</strong> Don't? Walk away. You owe us <strong>nothing</strong>.</p>
-    <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:18px" onclick="closeTimedPopup(); openModal()">Request My Free Mockup &rarr;</button>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:18px" onclick="closeTimedPopup(); openModal()">Get My Free Mockup &rarr;</button>
     <p class="tpop-trust">No credit card today &nbsp;&middot;&nbsp; 48h delivery</p>
   </div>
 </div>
@@ -722,7 +700,7 @@
       <p class="exit-sub">Save your spot for this week's free mockups &mdash; <strong>no payment, no commitment.</strong> Drop your name and email and we'll hold a slot.</p>
       <input class="exit-input" type="text" id="exitName" placeholder="Your name" oninput="validateExitEmail()">
       <input class="exit-input" type="email" id="exitEmail" placeholder="your@email.com" oninput="validateExitEmail()">
-      <button class="exit-submit" id="exitSubmit" disabled onclick="submitExitEmail()">Hold My Free Mockup Slot</button>
+      <button class="exit-submit" id="exitSubmit" disabled onclick="submitExitEmail()">Get My Free Mockup &rarr;</button>
       <p class="exit-trust">No spam &nbsp;&middot;&nbsp; No card &nbsp;&middot;&nbsp; Slot held for 48 hours</p>
     </div>
     <div id="exitConfirmed" style="display:none" class="exit-confirmed">
@@ -769,7 +747,7 @@
       <p class="m-hint">Don't have one? Type "none" &mdash; we'll start from scratch.</p>
       <label class="m-label">Email Address *</label>
       <input class="m-input" type="email" id="modalEmail" placeholder="you@company.com" oninput="validateModalForm()">
-      <button class="m-btn" id="modalSubmit" disabled onclick="submitModal()">Send Me My Free Mockup &rarr;</button>
+      <button class="m-btn" id="modalSubmit" disabled onclick="submitModal()">Get My Free Mockup &rarr;</button>
       <p style="margin-top:10px;font-size:12px;color:var(--txt-lt2);text-align:center">No credit card. No commitment. 48h delivery.</p>
     </div>
 
@@ -786,6 +764,19 @@
 </div>
 
 <script>
+  // ====== TICKER ======
+  (function () {
+    const items = ['Free 48h Mockup','$0 Today','$100/mo All-In','No Setup Fee','Cancel After 6 Months','Hosting Included','Unlimited Updates','Mobile-First Build'];
+    const all = [...items, ...items];
+    const track = document.getElementById('tickerTrack');
+    all.forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'ticker-item';
+      span.innerHTML = t + '<span class="ticker-dot"> &diams; </span>';
+      track.appendChild(span);
+    });
+  })();
+
   // ====== UTM CAPTURE ======
   const utm = (function () {
     const p = new URLSearchParams(window.location.search);
@@ -832,15 +823,12 @@
 
   // ====== EXIT INTENT: desktop mouseleave + mobile fast scroll-up >300px ======
   (function () {
-    let lastY = window.scrollY;
     const show = () => {
       if (sessionStorage.getItem('ea-exit') || sessionStorage.getItem('ea-popup')) return;
       document.getElementById('exitModal').classList.remove('hidden');
       sessionStorage.setItem('ea-exit', '1');
     };
-    // Desktop
     document.addEventListener('mouseleave', e => { if (e.clientY <= 0) show(); });
-    // Mobile: fast scroll-up by >300px after >400px scrolled
     let last = window.scrollY;
     let lastT = Date.now();
     window.addEventListener('scroll', () => {
@@ -850,7 +838,6 @@
       const dt = now - lastT;
       if (y > 400 && dy > 300 && dt < 500) show();
       last = y; lastT = now;
-      lastY = y;
     }, { passive: true });
   })();
 
