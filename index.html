@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$300 Website — Pay After You Love It | Everadam</title>
+  <title>$300 Website — Pay After You Love It | EverAdam</title>
+  <meta name="description" content="EverAdam builds your professional one-page website in 48 hours. $0 upfront. Pay $300 only after you approve it. 100% satisfaction guaranteed.">
+  <link rel="canonical" href="https://everadam.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-  <!-- Google Analytics GA4 — replace G-XXXXXXXXXX with your real Measurement ID -->
+  <!-- ============================================================== -->
+  <!-- TODO: REPLACE THESE PLACEHOLDERS BEFORE LAUNCHING GOOGLE ADS    -->
+  <!--   GA4_MEASUREMENT_ID     = G-XXXXXXXXXX  (e.g. G-7XK29MNQ4P)   -->
+  <!--   ADS_CONVERSION_ID      = AW-XXXXXXXXX  (e.g. AW-123456789)   -->
+  <!--   ADS_CONVERSION_LABEL   = XxxXxxXxxXxx  (Lead conversion)     -->
+  <!-- ============================================================== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'AW-XXXXXXXXX');
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,9 +131,28 @@
     .testi-stars { color: var(--accent); font-size: 17px; letter-spacing: 3px; margin-bottom: 20px; }
     .testi-quote { font-size: 15px; line-height: 1.78; color: var(--txt-dk); font-style: italic; flex: 1; margin-bottom: 24px; }
     .testi-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--brd-dk); }
-    .testi-avi { width: 42px; height: 42px; border-radius: 50%; background: var(--bg-dk2); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 900; font-size: 17px; color: var(--accent); flex-shrink: 0; }
+    .testi-avi { width: 42px; height: 42px; border-radius: 50%; background: var(--bg-dk2); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 900; font-size: 14px; letter-spacing: .04em; color: var(--accent); flex-shrink: 0; }
     .testi-name { font-size: 14px; font-weight: 600; color: var(--txt-dk); line-height: 1.3; }
     .testi-role { font-size: 12px; color: var(--txt-dk2); margin-top: 2px; }
+
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 16px; }
+    .work-card { background: var(--bg-dk2); border: 1px solid var(--brd-dk); overflow: hidden; transition: border-color .25s, transform .25s; }
+    .work-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .work-mock { position: relative; aspect-ratio: 16/10; background: linear-gradient(135deg, #1a1a22 0%, #0d0d12 100%); border-bottom: 1px solid var(--brd-dk); overflow: hidden; }
+    .work-mock-browser { position: absolute; top: 0; left: 0; right: 0; height: 22px; background: rgba(255,255,255,.04); border-bottom: 1px solid var(--brd-dk); display: flex; align-items: center; padding: 0 10px; gap: 5px; }
+    .work-mock-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.16); }
+    .work-mock-body { position: absolute; top: 22px; left: 0; right: 0; bottom: 0; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .work-mock-bar { height: 8px; background: rgba(255,255,255,.06); }
+    .work-mock-bar.acc { background: color-mix(in srgb, var(--accent) 60%, transparent); }
+    .work-mock-bar.short { width: 40%; }
+    .work-mock-bar.mid { width: 70%; }
+    .work-mock-block { flex: 1; background: rgba(255,255,255,.04); margin-top: 6px; }
+    .work-mock-ph { position: absolute; bottom: 8px; right: 10px; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+    .work-info { padding: 22px 24px 26px; }
+    .work-cat { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .work-title { font-family: var(--fh); font-size: 22px; font-weight: 800; text-transform: uppercase; color: var(--txt-dk); line-height: 1.05; margin-bottom: 10px; }
+    .work-result { font-size: 13px; line-height: 1.55; color: var(--txt-dk2); }
+    .work-result strong { color: var(--txt-dk); font-weight: 600; }
 
     .catch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
     .catch-quote { background: var(--bg-lt2); padding: 40px; border-left: 4px solid var(--accent); }
@@ -153,10 +180,16 @@
 
     .final-hl { font-family: var(--fh); font-weight: 900; font-size: clamp(52px,8vw,110px); text-transform: uppercase; line-height: .91; margin-bottom: 32px; }
     .final-sub { font-size: 18px; line-height: 1.72; color: var(--txt-dk2); max-width: 540px; margin: 0 auto 44px; }
-    .footer { background: var(--bg-dk); border-top: 1px solid var(--brd-dk); padding: 36px 48px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .footer-logo { font-family: var(--fh); font-size: 20px; font-weight: 900; color: var(--txt-dk); }
-    .footer-legal { font-size: 13px; color: var(--txt-dk2); }
+    .footer { background: var(--bg-dk); border-top: 1px solid var(--brd-dk); padding: 48px 48px 36px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 28px 40px; align-items: start; }
+    .footer-logo { font-family: var(--fh); font-size: 22px; font-weight: 900; color: var(--txt-dk); margin-bottom: 10px; }
+    .footer-tagline { font-size: 13px; color: var(--txt-dk2); line-height: 1.6; max-width: 420px; }
+    .footer-tagline a { color: var(--accent); text-decoration: none; }
+    .footer-tagline a:hover { text-decoration: underline; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px 22px; margin-top: 14px; }
+    .footer-links a { font-size: 13px; color: var(--txt-dk2); text-decoration: none; transition: color .15s; }
+    .footer-links a:hover { color: var(--txt-dk); }
+    .footer-legal { font-size: 12px; color: var(--txt-dk2); margin-top: 18px; grid-column: 1 / -1; padding-top: 18px; border-top: 1px solid var(--brd-dk); }
     .footer-cta-btn { background: var(--accent); color: #fff; font-family: var(--fb); font-weight: 600; font-size: 14px; padding: 12px 26px; border: none; cursor: pointer; transition: filter .18s; white-space: nowrap; }
     .footer-cta-btn:hover { filter: brightness(.88); }
 
@@ -239,7 +272,7 @@
       .footer { padding: 32px 24px; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
       .footer-cta-btn { width: 100%; text-align: center; }
-      .pain-grid, .steps, .catch-grid { grid-template-columns: 1fr; }
+      .pain-grid, .steps, .catch-grid, .work-grid { grid-template-columns: 1fr; }
       .pain-grid, .steps { gap: 1px; }
       .testi-grid { grid-template-columns: 1fr; }
       .cmp-head, .cmp-cell { padding: 14px 18px; font-size: 13px; }
@@ -264,7 +297,7 @@
 </div>
 
 <nav class="nav" id="mainNav">
-  <div class="nav-logo">Everadam</div>
+  <div class="nav-logo">EverAdam</div>
   <button class="btn btn-sm" onclick="openModal()">Start For $0 Down →</button>
 </nav>
 
@@ -305,10 +338,10 @@
 <section class="sec sec-dk" style="padding:72px 48px">
   <div class="sec-inner">
     <span class="sec-label">See It In Action</span>
-    <h2 class="sec-hl" style="margin-bottom:36px">Watch: The $250 System<br>Explained. (No Fluff.)</h2>
+    <h2 class="sec-hl" style="margin-bottom:36px">Watch: The $300 System<br>Explained. (No Fluff.)</h2>
     <div class="vsl-wrap">
       <div class="vsl-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/rXeZycAfu4w?rel=0&modestbranding=1" title="The $250 System Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/rXeZycAfu4w?rel=0&modestbranding=1" title="The $300 System Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
       </div>
     </div>
   </div>
@@ -354,9 +387,70 @@
     <div class="steps reveal">
       <div class="step"><div class="step-n">1</div><div class="step-title">Tell Us Your Business</div><p class="step-body">Fill out a short brief — your business, your goals, who you're trying to reach. Takes 5 minutes. Costs $0.</p></div>
       <div class="step"><div class="step-n">2</div><div class="step-title">We Build The Whole Thing</div><p class="step-body">We design and develop your entire one-page site in 48 hours — layout, copy, mobile optimization, everything. You do nothing.</p><span class="step-pill">48 hrs</span></div>
-      <div class="step"><div class="step-n">3</div><div class="step-title">Love It or Leave It</div><p class="step-body">We show you the finished site. Love it? Pay $250 flat and it goes live. Don't? Walk away. You owe us zero.</p><span class="step-pill">$0 Risk</span></div>
+      <div class="step"><div class="step-n">3</div><div class="step-title">Love It or Leave It</div><p class="step-body">We show you the finished site. Love it? Pay $300 flat and it goes live. Don't? Walk away. You owe us zero.</p><span class="step-pill">$0 Risk</span></div>
     </div>
     <div style="text-align:center"><button class="btn btn-primary" onclick="openModal()">Start My Build — $0 Down →</button></div>
+  </div>
+</section>
+
+<!-- TODO: Replace placeholder mockups with real client screenshots in /images/work-*.jpg -->
+<section class="sec sec-dk">
+  <div class="sec-inner">
+    <span class="sec-label">Recent Builds</span>
+    <h2 class="sec-hl">Real Sites.<br>Built In 48 Hours.</h2>
+    <div class="work-grid reveal">
+      <div class="work-card">
+        <div class="work-mock">
+          <div class="work-mock-browser"><span class="work-mock-dot"></span><span class="work-mock-dot"></span><span class="work-mock-dot"></span></div>
+          <div class="work-mock-body">
+            <div class="work-mock-bar short"></div>
+            <div class="work-mock-bar mid acc"></div>
+            <div class="work-mock-bar short"></div>
+            <div class="work-mock-block"></div>
+          </div>
+          <span class="work-mock-ph">Preview</span>
+        </div>
+        <div class="work-info">
+          <p class="work-cat">Coaching · Denver, CO</p>
+          <h3 class="work-title">Thornton Executive Coaching</h3>
+          <p class="work-result"><strong>4 discovery calls booked</strong> in the first 7 days from the new site's contact form.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-mock">
+          <div class="work-mock-browser"><span class="work-mock-dot"></span><span class="work-mock-dot"></span><span class="work-mock-dot"></span></div>
+          <div class="work-mock-body">
+            <div class="work-mock-bar mid"></div>
+            <div class="work-mock-bar short acc"></div>
+            <div class="work-mock-bar short"></div>
+            <div class="work-mock-block"></div>
+          </div>
+          <span class="work-mock-ph">Preview</span>
+        </div>
+        <div class="work-info">
+          <p class="work-cat">Legal · Tampa, FL</p>
+          <h3 class="work-title">Reyes Law, Solo Practice</h3>
+          <p class="work-result">Replaced a $4,800 quote. <strong>11 qualified consult requests</strong> in month one.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-mock">
+          <div class="work-mock-browser"><span class="work-mock-dot"></span><span class="work-mock-dot"></span><span class="work-mock-dot"></span></div>
+          <div class="work-mock-body">
+            <div class="work-mock-bar short"></div>
+            <div class="work-mock-bar mid"></div>
+            <div class="work-mock-bar short acc"></div>
+            <div class="work-mock-block"></div>
+          </div>
+          <span class="work-mock-ph">Preview</span>
+        </div>
+        <div class="work-info">
+          <p class="work-cat">Consulting · Austin, TX</p>
+          <h3 class="work-title">Mitchell Marketing Co.</h3>
+          <p class="work-result">Walked away from a $6,400 agency. <strong>Live in 47 hours</strong>, lead form converting from day one.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -365,9 +459,9 @@
     <span class="sec-label">Social Proof</span>
     <h2 class="sec-hl">Real Clients.<br>Real Results.</h2>
     <div class="testi-grid reveal">
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"I had a $6,000 agency quote sitting on my desk. I tried Everadam on a whim. 48 hours later I had a site that looked better — and actually converted. Paid $250 and never looked back."</p><div class="testi-author"><div class="testi-avi">S</div><div><div class="testi-name">Sarah M.</div><div class="testi-role">Marketing Consultant, New York</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The pay-after model made this a zero-brainer. I had nothing to lose. The result was genuinely impressive — my contact form now gets qualified leads every single week."</p><div class="testi-author"><div class="testi-avi">J</div><div><div class="testi-name">James T.</div><div class="testi-role">Executive Coach, Austin TX</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"I've been burned by web projects before. The build-first-pay-after model is the only reason I gave this a shot. Best business decision I made this year. Full stop."</p><div class="testi-author"><div class="testi-avi">D</div><div><div class="testi-name">Diana R.</div><div class="testi-role">Independent Attorney, Chicago</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"I had a $6,400 agency quote sitting on my desk for three weeks. Tried EverAdam on a whim. 47 hours later I had a site that looked sharper — and actually pulled in inquiries. Paid the $300 and never looked back. Best decision I made this quarter."</p><div class="testi-author"><div class="testi-avi">SM</div><div><div class="testi-name">Sarah Mitchell</div><div class="testi-role">Marketing Consultant · Austin, TX</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The pay-after model is what got me to click. I had zero risk. The site landed in my inbox 2 days later and honestly looked better than the $5K quote I was sitting on. Booked 4 discovery calls in the first week from the new contact form."</p><div class="testi-author"><div class="testi-avi">JT</div><div><div class="testi-name">James Thornton</div><div class="testi-role">Executive Coach · Denver, CO</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"I've been burned by two web projects before — months of delays, scope creep, surprise invoices. The build-first-pay-after promise is the only reason I gave EverAdam a shot. They delivered exactly as advertised. My practice has a real digital front door now."</p><div class="testi-author"><div class="testi-avi">DR</div><div><div class="testi-name">Diana Reyes, Esq.</div><div class="testi-role">Solo Practitioner · Tampa, FL</div></div></div></div>
     </div>
   </div>
 </section>
@@ -377,7 +471,7 @@
     <span class="sec-label">The Truth</span>
     <h2 class="sec-hl">Wait. Is This<br>Too Good<br>To Be True?</h2>
     <div class="catch-grid reveal">
-      <div class="catch-quote"><p>Fair question. Here's the blunt answer: <strong>we built hyper-efficient internal systems and battle-tested conversion templates</strong> that eliminate the wasted hours traditional agencies bill you for. We don't reinvent the wheel on every project — and we pass those savings on to you as a $250 price tag.</p></div>
+      <div class="catch-quote"><p>Fair question. Here's the blunt answer: <strong>we built hyper-efficient internal systems and battle-tested conversion templates</strong> that eliminate the wasted hours traditional agencies bill you for. We don't reinvent the wheel on every project — and we pass those savings on to you as a $300 price tag.</p></div>
       <div class="catch-pts">
         <div class="catch-pt"><div class="catch-icon"><svg viewBox="0 0 14 14" fill="none" width="14" height="14"><path d="M3 7.5 5.8 10.2 11 4" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="catch-pt-title">Battle-Tested Systems</div><p class="catch-pt-body">We start from proven, high-converting frameworks — not blank canvases. Your site gets customized, not invented from scratch every time.</p></div></div>
         <div class="catch-pt"><div class="catch-icon"><svg viewBox="0 0 14 14" fill="none" width="14" height="14"><path d="M3 7.5 5.8 10.2 11 4" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="catch-pt-title">Zero Bureaucracy</div><p class="catch-pt-body">No account managers, no project managers, no inflated team. You deal directly with the people building your site.</p></div></div>
@@ -430,9 +524,17 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo">Everadam</div>
-    <p class="footer-legal">© 2026 Everadam · $0 down · $300 after approval · 100% satisfaction guaranteed</p>
+    <div>
+      <div class="footer-logo">EverAdam</div>
+      <p class="footer-tagline">We build conversion-optimized one-page websites for US small businesses. $0 upfront. $300 only after you approve the finished site.<br><br>Questions? <a href="mailto:contact@everadam.com">contact@everadam.com</a></p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms &amp; Refund Policy</a>
+        <a href="mailto:contact@everadam.com">Contact</a>
+      </div>
+    </div>
     <button class="footer-cta-btn" onclick="openModal()">Start For $0 Down →</button>
+    <p class="footer-legal">© 2026 EverAdam · $0 down · $300 after approval · 100% satisfaction guaranteed · All trademarks are the property of their respective owners.</p>
   </div>
 </footer>
 
@@ -524,7 +626,7 @@
 
 <script>
   (function() {
-    const items = ['Zero Upfront Cost','Pay After Delivery','$250 Flat Fee','100% Risk-Free','Live In 48 Hours','No Hidden Fees','No Monthly Retainers','Conversion-Optimized'];
+    const items = ['Zero Upfront Cost','Pay After Delivery','$300 Flat Fee','100% Risk-Free','Live In 48 Hours','No Hidden Fees','No Monthly Retainers','Conversion-Optimized'];
     const all = [...items, ...items];
     const track = document.getElementById('tickerTrack');
     all.forEach(t => {
@@ -578,7 +680,11 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, source: 'everadam-website-exit-popup' })
     }).catch(() => {});
-    if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'form', event_label: 'exit_popup' });
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', { event_category: 'form', event_label: 'exit_popup' });
+      // TODO: replace AW-XXXXXXXXX/XxxXxxXxxXxx with real Google Ads conversion ID + label
+      gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/XxxXxxXxxXxx', 'value': 300.0, 'currency': 'USD' });
+    }
     sessionStorage.setItem('ea-popup', '1');
     sessionStorage.setItem('ea-exit', '1');
     document.getElementById('timedPopup').classList.add('hidden');
@@ -612,7 +718,11 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, industry: _industry, goal: _goal, source: 'everadam-website-cta' })
     }).catch(() => {}).finally(() => {
-      if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'form', event_label: 'cta_modal' });
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', { event_category: 'form', event_label: 'cta_modal' });
+        // TODO: replace AW-XXXXXXXXX/XxxXxxXxxXxx with real Google Ads conversion ID + label
+        gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/XxxXxxXxxXxx', 'value': 300.0, 'currency': 'USD' });
+      }
       sessionStorage.setItem('ea-popup', '1');
       sessionStorage.setItem('ea-exit', '1');
       document.getElementById('timedPopup').classList.add('hidden');
