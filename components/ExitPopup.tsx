@@ -108,7 +108,7 @@ export default function ExitPopup() {
                     <div>
                       <div className="text-sm font-black text-navy uppercase tracking-tight mb-1">72-Hour Price Lock</div>
                       <p className="text-xs text-gray-600 leading-relaxed">
-                        Leave your email and we&apos;ll hold your slot + lock in the $100/month rate for the next 72 hours — even if prices go up.
+                        Leave your email and we&apos;ll hold your slot + lock in your rate for the next 72 hours — even if prices go up.
                       </p>
                     </div>
                   </div>

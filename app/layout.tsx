@@ -10,9 +10,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Free Custom Website Mockup in 48h | $100/mo All-In | EverAdam',
+  title: 'Free Custom Website Mockup in 48h | $600 Flat, Pay After Approval | EverAdam',
   description:
-    'US-based local service businesses: get a custom website mockup in 48 hours, free. Love it? Goes live for $100/month — hosting, updates, security included. No credit card today.',
+    'US-based local service businesses: get a custom website mockup in 48 hours, free. Love it? Goes live for a flat $600 — no monthly fees, no contracts. No credit card today.',
   metadataBase: new URL('https://website.everadam.com'),
   alternates: { canonical: 'https://website.everadam.com/' },
   openGraph: {

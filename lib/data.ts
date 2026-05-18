@@ -24,14 +24,14 @@ export const WEBSITE_STATUSES = [
 export const TRUST_STATS = [
   { value: '140+', label: 'Mockups Delivered' },
   { value: '48h', label: 'Avg. Delivery Time' },
-  { value: '$0', label: 'Upfront Cost' },
+  { value: '$600', label: 'Flat Rate, No Surprises' },
   { value: '🇺🇸', label: 'US-Based' },
 ];
 
 export const COMPARISON_ROWS = [
   { feature: 'Free Mockup Before You Pay', everadam: true, agency: false, diy: false },
   { feature: '48-Hour Delivery', everadam: true, agency: false, diy: null },
-  { feature: '$0 Upfront, No Contract', everadam: true, agency: false, diy: false },
+  { feature: 'Pay Only After You Approve It', everadam: true, agency: false, diy: false },
   { feature: 'Built for Trades & Local Services', everadam: true, agency: null, diy: false },
   { feature: 'Hosting + Updates Included', everadam: true, agency: false, diy: false },
   { feature: 'Mobile + SEO Ready', everadam: true, agency: null, diy: null },
@@ -55,8 +55,8 @@ export const HOW_IT_WORKS = [
   },
   {
     step: '04',
-    title: '$100/Month. Everything Included.',
-    desc: 'Hosting, security, updates, support. One flat price. Cancel anytime.',
+    title: 'Love It? We Go Live.',
+    desc: 'Approve the design and we launch your site. One flat fee — no monthly surprises, no hidden costs.',
   },
 ];
 
@@ -70,8 +70,8 @@ export const FAQS = [
     a: 'You walk away. No invoice, no awkward follow-up, no hard feelings. We keep the mockup rights and you owe us nothing.',
   },
   {
-    q: 'What is included in the $100/month?',
-    a: 'Everything: hosting, SSL certificate, security monitoring, monthly content updates (up to 2 per month), and priority email support.',
+    q: 'What is included in the price?',
+    a: 'Everything: custom design, launch, SSL certificate, security monitoring, monthly content updates (up to 2 per month), and priority email support.',
   },
   {
     q: 'How long until my site goes live?',

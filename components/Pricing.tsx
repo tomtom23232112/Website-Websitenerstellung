@@ -9,10 +9,10 @@ interface PricingProps {
 
 const INCLUDED = [
   'Custom designed website (yours to keep)',
-  'Hosting + SSL certificate',
-  'Security monitoring & updates',
-  'Up to 2 content updates per month',
+  'Professional launch & setup',
   'Mobile-optimized & SEO-ready',
+  'Up to 2 content updates per month',
+  'Security monitoring & SSL included',
   'Priority email support',
 ];
 
@@ -28,7 +28,7 @@ export default function Pricing({ onCTAClick }: PricingProps) {
         >
           <div className="text-xs text-red font-black uppercase tracking-widest mb-3">Simple Pricing</div>
           <h2 className="text-3xl md:text-4xl font-black text-navy uppercase tracking-tight mb-12">
-            One Flat Price. No Surprises.
+            One Flat Fee. Pay Only If You Love It.
           </h2>
         </motion.div>
 
@@ -42,10 +42,10 @@ export default function Pricing({ onCTAClick }: PricingProps) {
             className="flex-1 border-2 border-navy p-8"
           >
             <div className="flex items-end gap-2 mb-2">
-              <span className="text-5xl font-black text-navy">$100</span>
-              <span className="text-lg text-gray-500 font-semibold mb-1.5">/month</span>
+              <span className="text-5xl font-black text-navy">$600</span>
+              <span className="text-lg text-gray-500 font-semibold mb-1.5">flat</span>
             </div>
-            <div className="text-sm text-gray-500 mb-6">Everything included. Cancel anytime.</div>
+            <div className="text-sm text-gray-500 mb-6">One-time fee. Everything included. No monthly surprises.</div>
 
             <div className="space-y-3 mb-8">
               {INCLUDED.map((item, i) => (
@@ -62,7 +62,7 @@ export default function Pricing({ onCTAClick }: PricingProps) {
             >
               Get My Free Mockup First →
             </button>
-            <p className="text-xs text-gray-400 text-center mt-3">$0 upfront — pay only after you see it and love it</p>
+            <p className="text-xs text-gray-400 text-center mt-3">$0 upfront — you only pay after you see it and approve it</p>
           </motion.div>
 
           {/* Scarcity + lock */}
@@ -85,7 +85,7 @@ export default function Pricing({ onCTAClick }: PricingProps) {
             <div className="bg-off-white border border-gray-200 p-6">
               <div className="text-xs text-navy font-black uppercase tracking-widest mb-2">72h Price Lock</div>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Request your mockup now and lock in the $100/month rate for 72 hours — even if prices change.
+                Request your mockup now and lock in your rate for 72 hours — even if prices change.
               </p>
             </div>
           </motion.div>
