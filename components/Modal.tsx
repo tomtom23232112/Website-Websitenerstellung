@@ -38,24 +38,12 @@ function buildPayload(data: {
   };
 }
 
-const STEPS = 4;
-
-function ProgressDots({ step }: { step: number }) {
-  return (
-    <div className="flex gap-2 mb-6">
-      {Array.from({ length: STEPS }).map((_, i) => (
-        <div
-          key={i}
-          className="h-1.5 flex-1 rounded-full transition-colors duration-300"
-          style={{ background: i < step ? '#dc2626' : '#e5e7eb' }}
-        />
-      ))}
-    </div>
-  );
-}
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+const TOTAL_STEPS = 4;
 
 export default function Modal({ open, onClose }: ModalProps) {
   const [step, setStep] = useState(1);
+  const [direction, setDirection] = useState(1);
   const [industry, setIndustry] = useState('');
   const [area, setArea] = useState('');
   const [status, setStatus] = useState('');
@@ -65,29 +53,46 @@ export default function Modal({ open, onClose }: ModalProps) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const areaRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+
+  const emailValid = email.includes('@') && email.includes('.');
+  const canSubmit = name.trim().length > 1 && emailValid;
 
   useEffect(() => {
     if (open) {
-      setStep(1); setIndustry(''); setArea(''); setStatus('');
+      setStep(1); setDirection(1);
+      setIndustry(''); setArea(''); setStatus('');
       setName(''); setEmail(''); setUrl('');
       setSubmitting(false); setDone(false);
     }
   }, [open]);
 
   useEffect(() => {
-    if (step === 2) setTimeout(() => areaRef.current?.focus(), 100);
+    if (step === 2) setTimeout(() => areaRef.current?.focus(), 350);
+    if (step === 4) setTimeout(() => nameRef.current?.focus(), 350);
   }, [step]);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'Enter') {
+        if (step === 2 && area.trim().length >= 2) goTo(3);
+        if (step === 4 && canSubmit && !submitting) submit();
+      }
+    };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [onClose]);
+  }, [step, area, canSubmit, submitting, onClose]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
+
+  function goTo(next: number) {
+    setDirection(next > step ? 1 : -1);
+    setStep(next);
+  }
 
   async function submit() {
     setSubmitting(true);
@@ -97,197 +102,248 @@ export default function Modal({ open, onClose }: ModalProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(buildPayload({ name, email, url, industry, area, status })),
       });
-    } catch {
-      // silent fail — lead still captured if retry works
-    }
+    } catch { /* silent */ }
     setDone(true);
     setSubmitting(false);
   }
 
-  const emailValid = email.includes('@') && email.includes('.');
-  const canSubmit = name.trim().length > 1 && emailValid;
+  const variants = {
+    enter: (d: number) => ({ opacity: 0, y: d > 0 ? 40 : -40 }),
+    center: { opacity: 1, y: 0 },
+    exit: (d: number) => ({ opacity: 0, y: d > 0 ? -40 : 40 }),
+  };
+
+  if (!open) return null;
 
   return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: 'rgba(0,0,0,.6)' }}
-          onClick={(e) => e.target === e.currentTarget && onClose()}
+    <div className="fixed inset-0 z-[60] flex flex-col" style={{ background: '#fff' }}>
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <span className="text-navy font-black text-sm tracking-widest uppercase">EverAdam</span>
+        <button
+          onClick={onClose}
+          className="text-gray-400 hover:text-gray-700 text-2xl leading-none cursor-pointer transition-colors"
+          aria-label="Close"
         >
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.95, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="bg-white w-full max-w-md max-h-[90vh] overflow-y-auto relative"
-          >
-            {/* Header */}
-            <div className="bg-navy px-7 py-5 flex items-center justify-between">
-              <span className="text-white font-black text-sm uppercase tracking-widest">EverAdam</span>
-              <button onClick={onClose} className="text-white/50 hover:text-white text-xl leading-none cursor-pointer">&times;</button>
-            </div>
+          ×
+        </button>
+      </div>
 
-            <div className="px-7 py-6">
-              {done ? (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-6">
-                  <div className="text-4xl mb-4">✅</div>
-                  <h3 className="text-xl font-black text-navy uppercase mb-2">You&apos;re on the list!</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                    We&apos;ll have your custom mockup ready within 48 hours.
-                    Check your inbox — we&apos;ll send a preview link when it&apos;s done.
-                  </p>
-                  <button
-                    onClick={onClose}
-                    className="bg-navy text-white text-xs font-black uppercase tracking-wider px-6 py-3 cursor-pointer"
-                  >
-                    Close
-                  </button>
-                </motion.div>
-              ) : (
-                <>
-                  <ProgressDots step={step} />
+      {/* Progress bar */}
+      <div className="h-0.5 bg-gray-100">
+        <div
+          className="h-full bg-red transition-all duration-500"
+          style={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
+        />
+      </div>
 
-                  {/* Step 1 — Industry */}
-                  {step === 1 && (
-                    <div>
-                      <div className="text-xs text-red font-black uppercase tracking-widest mb-1">Step 1 of 4 — One Click</div>
-                      <h3 className="text-lg font-black text-navy uppercase mb-1">What&apos;s your trade?</h3>
-                      <p className="text-sm text-gray-500 mb-5">No typing yet. Pick one to start.</p>
-                      <div className="space-y-2.5">
-                        {INDUSTRIES.map((ind) => (
-                          <button
-                            key={ind.value}
-                            onClick={() => { setIndustry(ind.value); setStep(2); }}
-                            className="w-full text-left px-5 py-3.5 border-2 text-sm font-semibold transition-all cursor-pointer hover:border-navy hover:bg-off-white"
+      {/* Content */}
+      <div className="flex-1 flex flex-col items-center justify-center px-6 overflow-hidden">
+        <div className="w-full max-w-xl">
+          <AnimatePresence mode="wait" custom={direction}>
+            {done ? (
+              <motion.div
+                key="done"
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12"
+              >
+                <div className="text-5xl mb-6">✅</div>
+                <h2 className="text-3xl font-black text-navy uppercase tracking-tight mb-3">
+                  You&apos;re on the list!
+                </h2>
+                <p className="text-gray-500 leading-relaxed mb-8">
+                  Your custom mockup will be in your inbox within 48 hours.
+                </p>
+                <button
+                  onClick={onClose}
+                  className="bg-navy text-white text-xs font-black uppercase tracking-widest px-8 py-4 cursor-pointer hover:bg-navy/90 transition-colors"
+                >
+                  Close
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={step}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {/* Step 1 — Industry */}
+                {step === 1 && (
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Question 1 of 4</p>
+                    <h2 className="text-2xl md:text-3xl font-black text-navy uppercase tracking-tight mb-8">
+                      What&apos;s your trade?
+                    </h2>
+                    <div className="space-y-2.5">
+                      {INDUSTRIES.map((ind, i) => (
+                        <button
+                          key={ind.value}
+                          onClick={() => { setIndustry(ind.value); goTo(2); }}
+                          className="w-full flex items-center gap-4 px-5 py-3.5 border-2 text-sm font-semibold transition-all cursor-pointer group"
+                          style={{
+                            borderColor: industry === ind.value ? '#1e3a5f' : '#e5e7eb',
+                            background: industry === ind.value ? '#1e3a5f' : '#fff',
+                            color: industry === ind.value ? '#fff' : '#1e3a5f',
+                          }}
+                        >
+                          <span
+                            className="w-6 h-6 flex items-center justify-center border text-xs font-black shrink-0 transition-colors"
                             style={{
-                              borderColor: industry === ind.value ? '#1e3a5f' : '#e5e7eb',
-                              background: industry === ind.value ? '#1e3a5f' : undefined,
-                              color: industry === ind.value ? '#fff' : '#1e3a5f',
+                              borderColor: industry === ind.value ? 'rgba(255,255,255,0.4)' : '#d1d5db',
+                              color: industry === ind.value ? '#fff' : '#9ca3af',
                             }}
                           >
-                            {ind.label}
-                          </button>
-                        ))}
-                      </div>
+                            {LETTERS[i]}
+                          </span>
+                          {ind.label}
+                        </button>
+                      ))}
                     </div>
-                  )}
+                  </div>
+                )}
 
-                  {/* Step 2 — Service Area */}
-                  {step === 2 && (
-                    <div>
-                      <button onClick={() => setStep(1)} className="text-xs text-gray-400 hover:text-navy mb-4 cursor-pointer">← Back</button>
-                      <div className="text-xs text-red font-black uppercase tracking-widest mb-1">Step 2 of 4</div>
-                      <h3 className="text-lg font-black text-navy uppercase mb-1">Where do you work?</h3>
-                      <p className="text-sm text-gray-500 mb-5">City & state or zip code — we&apos;ll build your mockup for your market.</p>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">City & State *</label>
-                      <input
-                        ref={areaRef}
-                        type="text"
-                        value={area}
-                        onChange={(e) => setArea(e.target.value)}
-                        placeholder="e.g. Dallas, TX or 75001"
-                        className="w-full border-2 border-gray-200 px-4 py-3 text-sm text-navy font-semibold focus:border-navy outline-none mb-5"
-                      />
+                {/* Step 2 — Service Area */}
+                {step === 2 && (
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Question 2 of 4</p>
+                    <h2 className="text-2xl md:text-3xl font-black text-navy uppercase tracking-tight mb-3">
+                      Where do you work?
+                    </h2>
+                    <p className="text-gray-500 text-sm mb-8">City & state or zip — we build for your exact market.</p>
+                    <input
+                      ref={areaRef}
+                      type="text"
+                      value={area}
+                      onChange={(e) => setArea(e.target.value)}
+                      placeholder="e.g. Dallas, TX or 75001"
+                      className="w-full border-b-2 border-gray-300 focus:border-navy outline-none py-3 text-lg text-navy font-semibold bg-transparent placeholder-gray-300 transition-colors mb-8"
+                    />
+                    <div className="flex items-center gap-4">
                       <button
                         disabled={area.trim().length < 2}
-                        onClick={() => setStep(3)}
-                        className="w-full bg-navy text-white text-sm font-black uppercase tracking-wider py-3.5 disabled:opacity-40 cursor-pointer hover:bg-navy-dark transition-colors"
+                        onClick={() => goTo(3)}
+                        className="bg-red text-white text-sm font-black uppercase tracking-wider px-7 py-3.5 disabled:opacity-40 cursor-pointer hover:bg-red/90 transition-colors"
                       >
-                        Continue →
+                        OK →
                       </button>
+                      <span className="text-xs text-gray-400">press <kbd className="font-bold">Enter ↵</kbd></span>
                     </div>
-                  )}
+                  </div>
+                )}
 
-                  {/* Step 3 — Website Status */}
-                  {step === 3 && (
-                    <div>
-                      <button onClick={() => setStep(2)} className="text-xs text-gray-400 hover:text-navy mb-4 cursor-pointer">← Back</button>
-                      <div className="text-xs text-red font-black uppercase tracking-widest mb-1">Step 3 of 4</div>
-                      <h3 className="text-lg font-black text-navy uppercase mb-1">Current website?</h3>
-                      <p className="text-sm text-gray-500 mb-5">Honest answer helps us build the right mockup.</p>
-                      <div className="space-y-2.5">
-                        {WEBSITE_STATUSES.map((ws) => (
-                          <button
-                            key={ws.value}
-                            onClick={() => { setStatus(ws.value); setStep(4); }}
-                            className="w-full text-left px-5 py-3.5 border-2 text-sm font-semibold transition-all cursor-pointer hover:border-navy hover:bg-off-white"
+                {/* Step 3 — Website Status */}
+                {step === 3 && (
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Question 3 of 4</p>
+                    <h2 className="text-2xl md:text-3xl font-black text-navy uppercase tracking-tight mb-3">
+                      Current website situation?
+                    </h2>
+                    <p className="text-gray-500 text-sm mb-8">Honest answer helps us build the right mockup.</p>
+                    <div className="space-y-2.5">
+                      {WEBSITE_STATUSES.map((ws, i) => (
+                        <button
+                          key={ws.value}
+                          onClick={() => { setStatus(ws.value); goTo(4); }}
+                          className="w-full flex items-center gap-4 px-5 py-3.5 border-2 text-sm font-semibold transition-all cursor-pointer"
+                          style={{
+                            borderColor: status === ws.value ? '#1e3a5f' : '#e5e7eb',
+                            background: status === ws.value ? '#1e3a5f' : '#fff',
+                            color: status === ws.value ? '#fff' : '#1e3a5f',
+                          }}
+                        >
+                          <span
+                            className="w-6 h-6 flex items-center justify-center border text-xs font-black shrink-0 transition-colors"
                             style={{
-                              borderColor: status === ws.value ? '#1e3a5f' : '#e5e7eb',
-                              background: status === ws.value ? '#1e3a5f' : undefined,
-                              color: status === ws.value ? '#fff' : '#1e3a5f',
+                              borderColor: status === ws.value ? 'rgba(255,255,255,0.4)' : '#d1d5db',
+                              color: status === ws.value ? '#fff' : '#9ca3af',
                             }}
                           >
-                            {ws.label}
-                          </button>
-                        ))}
+                            {LETTERS[i]}
+                          </span>
+                          {ws.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 4 — Contact */}
+                {step === 4 && (
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Last step</p>
+                    <h2 className="text-2xl md:text-3xl font-black text-navy uppercase tracking-tight mb-3">
+                      Where do we send the mockup?
+                    </h2>
+                    <p className="text-gray-500 text-sm mb-8">Two fields. Mockup delivered within 48 hours.</p>
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Your Name *</label>
+                        <input
+                          ref={nameRef}
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Jane Doe"
+                          className="w-full border-b-2 border-gray-300 focus:border-navy outline-none py-3 text-lg text-navy font-semibold bg-transparent placeholder-gray-300 transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Email Address *</label>
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="your@email.com"
+                          className="w-full border-b-2 border-gray-300 focus:border-navy outline-none py-3 text-lg text-navy font-semibold bg-transparent placeholder-gray-300 transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Current Website <span className="text-gray-300 font-normal normal-case tracking-normal">optional</span></label>
+                        <input
+                          type="text"
+                          value={url}
+                          onChange={(e) => setUrl(e.target.value)}
+                          placeholder="yourbusiness.com"
+                          className="w-full border-b-2 border-gray-300 focus:border-navy outline-none py-3 text-lg text-navy font-semibold bg-transparent placeholder-gray-300 transition-colors"
+                        />
                       </div>
                     </div>
-                  )}
-
-                  {/* Step 4 — Contact */}
-                  {step === 4 && (
-                    <div>
-                      <button onClick={() => setStep(3)} className="text-xs text-gray-400 hover:text-navy mb-4 cursor-pointer">← Back</button>
-                      <div className="text-xs text-red font-black uppercase tracking-widest mb-1">Step 4 of 4 — Almost Done</div>
-                      <h3 className="text-lg font-black text-navy uppercase mb-1">Where do we send the mockup?</h3>
-                      <p className="text-sm text-gray-500 mb-5">Two required fields. Mockup delivered within 48 hours.</p>
-
-                      <div className="space-y-4">
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Your Name *</label>
-                          <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Jane Doe"
-                            className="w-full border-2 border-gray-200 px-4 py-3 text-sm text-navy font-semibold focus:border-navy outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Email Address *</label>
-                          <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="your@email.com"
-                            className="w-full border-2 border-gray-200 px-4 py-3 text-sm text-navy font-semibold focus:border-navy outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Current Website URL</label>
-                          <input
-                            type="text"
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                            placeholder="yourbusiness.com (or leave blank)"
-                            className="w-full border-2 border-gray-200 px-4 py-3 text-sm text-navy font-semibold focus:border-navy outline-none"
-                          />
-                          <p className="text-xs text-gray-400 mt-1">No site? Leave it blank — we&apos;ll start from scratch.</p>
-                        </div>
-                      </div>
-
+                    <div className="mt-8 flex items-center gap-4">
                       <button
                         disabled={!canSubmit || submitting}
                         onClick={submit}
-                        className="w-full mt-6 bg-red text-white text-sm font-black uppercase tracking-wider py-4 disabled:opacity-40 cursor-pointer hover:bg-red-dark transition-colors"
+                        className="bg-red text-white text-sm font-black uppercase tracking-wider px-7 py-3.5 disabled:opacity-40 cursor-pointer hover:bg-red/90 transition-colors"
                       >
                         {submitting ? 'Sending…' : 'Get My Free Mockup →'}
                       </button>
-                      <p className="text-xs text-gray-400 text-center mt-3">
-                        No spam. No hard sell. Mockup delivered in 48h.
-                      </p>
+                      <span className="text-xs text-gray-400">press <kbd className="font-bold">Enter ↵</kbd></span>
                     </div>
-                  )}
-                </>
-              )}
-            </div>
-          </motion.div>
-        </motion.div>
+                    <p className="text-xs text-gray-400 mt-4">No spam. No hard sell. Mockup delivered in 48h.</p>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Bottom nav */}
+      {!done && (
+        <div className="px-6 py-4 border-t border-gray-100 flex items-center justify-between">
+          <button
+            onClick={() => step > 1 ? goTo(step - 1) : onClose()}
+            className="text-xs text-gray-400 hover:text-navy transition-colors cursor-pointer font-semibold"
+          >
+            ← {step > 1 ? 'Back' : 'Cancel'}
+          </button>
+          <span className="text-xs text-gray-300 font-semibold">{step} / {TOTAL_STEPS}</span>
+        </div>
       )}
-    </AnimatePresence>
+    </div>
   );
 }
