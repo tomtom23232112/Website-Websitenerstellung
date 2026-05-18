@@ -1,6 +1,6 @@
 export const PHONE = '';
 export const CRM_ENDPOINT = 'https://crm.webars.at/api/leads/everadam-website';
-export const SLOTS_OPEN = 7;
+export const SLOTS_OPEN = 4;
 
 export const INDUSTRIES = [
   { value: 'hvac', label: 'HVAC' },
