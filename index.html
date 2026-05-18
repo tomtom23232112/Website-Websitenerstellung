@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://website.everadam.com/">
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Free Custom Website Mockup in 48 Hours — EverAdam">
-  <meta property="og:description" content="Love the mockup? Goes live for $100/mo, all-in. Don't? Walk away. Free for US local service businesses.">
+  <meta property="og:title" content="Stop Losing Service Calls — Free Custom Website Mockup in 48h | EverAdam">
+  <meta property="og:description" content="Every week without a converting website, competitors book those jobs instead of you. See your new site in 48 hours. Pay $0 until you love it.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://website.everadam.com/">
 
@@ -79,6 +79,9 @@
     .hero-sub { font-size: 18px; line-height: 1.7; color: var(--txt-dk2); max-width: 540px; margin-bottom: 36px; }
     .hero-sub strong { color: var(--txt-dk); font-weight: 600; }
     .hero-trust { font-size: 12px; color: var(--txt-dk2); letter-spacing: .06em; margin-top: 16px; }
+    .hero-trust-strip { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 28px; }
+    .hero-trust-item { font-size: 12px; font-weight: 600; color: var(--txt-dk2); letter-spacing: .04em; display: flex; align-items: center; gap: 6px; }
+    .hero-trust-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
     .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--brd-dk); border: 1px solid var(--brd-dk); align-self: center; }
     .hero-stat { background: var(--bg-dk2); padding: 26px 22px; text-align: center; transition: background .2s; min-width: 130px; }
     .hero-stat:hover { background: rgba(255,255,255,.04); }
@@ -143,7 +146,7 @@
     .cmp-x { color: #EF4444; font-weight: 700; font-size: 15px; flex-shrink: 0; }
     .cmp-chk { color: var(--accent); font-weight: 700; font-size: 15px; flex-shrink: 0; }
 
-    /* Mockups — 2-column with first spanning full width */
+    /* Mockups */
     .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .work-grid > .work-card:first-child { grid-column: 1 / -1; }
     .work-card { background: var(--bg-dk); border: 1px solid var(--brd-dk); overflow: hidden; transition: border-color .25s, transform .25s; }
@@ -157,13 +160,18 @@
     .work-mock-l.acc { background: color-mix(in srgb, var(--accent) 60%, transparent); }
     .work-mock-l.s { width: 40%; } .work-mock-l.m { width: 70%; }
     .work-mock-blk { flex: 1; background: rgba(255,255,255,.04); margin-top: 6px; }
+    /* FTC Concept Watermark */
+    .work-mock-concept { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg); font-family: var(--fh); font-size: 26px; font-weight: 900; letter-spacing: 0.3em; color: rgba(255,255,255,0.13); text-transform: uppercase; pointer-events: none; white-space: nowrap; }
     .work-mock-ph { position: absolute; bottom: 8px; right: 10px; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.22); }
-    .work-info { padding: 24px 28px 28px; }
+    .work-info { padding: 24px 28px 20px; }
     .work-cat { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .work-title { font-family: var(--fh); font-size: 24px; font-weight: 800; text-transform: uppercase; color: var(--txt-dk); line-height: 1.05; margin-bottom: 10px; }
     .work-desc { font-size: 14px; line-height: 1.6; color: var(--txt-dk2); }
+    /* FTC disclosure label below each card */
+    .work-ftc { font-size: 11px; color: var(--txt-dk2); padding: 10px 28px 14px; border-top: 1px solid var(--brd-dk); line-height: 1.5; font-style: italic; }
     .work-caption { font-size: 13px; color: var(--txt-dk2); margin-top: 32px; text-align: center; }
     .work-caption strong { color: var(--txt-dk); }
+    .work-ftc-note { font-size: 12px; color: var(--txt-dk2); margin-top: 14px; text-align: center; line-height: 1.6; border: 1px solid var(--brd-dk); padding: 14px 20px; }
 
     /* Benefits */
     .ben-grid { display: grid; grid-template-columns: 1fr 1fr; }
@@ -175,17 +183,12 @@
     .ben-title { font-size: 15px; font-weight: 600; color: var(--txt-dk); margin-bottom: 3px; }
     .ben-desc { font-size: 13px; line-height: 1.55; color: var(--txt-dk2); }
 
-    /* Testimonials */
-    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .testi-card { background: var(--bg-dk); border: 1px solid var(--brd-dk); padding: 32px; display: flex; flex-direction: column; transition: border-color .25s; }
-    .testi-card:hover { border-color: var(--accent); }
-    .testi-stars { color: var(--accent); font-size: 17px; letter-spacing: 3px; margin-bottom: 20px; }
-    .testi-quote { font-size: 15px; line-height: 1.78; color: var(--txt-dk); font-style: italic; flex: 1; margin-bottom: 24px; }
-    .testi-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--brd-dk); }
-    .testi-avi { width: 42px; height: 42px; border-radius: 50%; background: var(--bg-dk2); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 900; font-size: 14px; letter-spacing: .04em; color: var(--accent); flex-shrink: 0; }
-    .testi-name { font-size: 14px; font-weight: 600; color: var(--txt-dk); line-height: 1.3; }
-    .testi-role { font-size: 12px; color: var(--txt-dk2); margin-top: 2px; }
-    .testi-placeholder { font-size: 10px; font-weight: 700; letter-spacing: .18em; color: #FCD34D; text-transform: uppercase; margin-bottom: 14px; }
+    /* Authority grid */
+    .auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--brd-dk); }
+    .auth-card { background: var(--bg-dk2); padding: 40px 36px; }
+    .auth-num { font-family: var(--fh); font-size: 56px; font-weight: 900; color: var(--accent); opacity: .7; line-height: 1; margin-bottom: 14px; }
+    .auth-title { font-family: var(--fh); font-size: 22px; font-weight: 800; text-transform: uppercase; color: var(--txt-dk); margin-bottom: 12px; line-height: 1.1; }
+    .auth-body { font-size: 15px; line-height: 1.68; color: var(--txt-dk2); }
 
     /* FAQ */
     .faq { display: flex; flex-direction: column; gap: 1px; background: var(--brd-dk); border: 1px solid var(--brd-dk); }
@@ -209,6 +212,12 @@
     .final-hl { font-family: var(--fh); font-weight: 900; font-size: clamp(52px,8vw,110px); text-transform: uppercase; line-height: .91; margin-bottom: 32px; }
     .final-sub { font-size: 18px; line-height: 1.72; color: var(--txt-dk2); max-width: 560px; margin: 0 auto 44px; }
     .final-reply { font-size: 13px; color: var(--txt-dk2); margin-top: 18px; letter-spacing: .03em; }
+
+    /* Guarantee block */
+    .guarantee { background: var(--bg-dk2); border: 1px solid var(--brd-dk); padding: 28px 36px; margin-top: 32px; display: flex; align-items: center; gap: 24px; }
+    .guarantee-icon { font-family: var(--fh); font-size: 44px; font-weight: 900; color: var(--accent); flex-shrink: 0; line-height: 1; }
+    .guarantee-text { font-size: 16px; line-height: 1.65; color: var(--txt-dk); }
+    .guarantee-text strong { color: var(--txt-dk); font-weight: 700; }
 
     /* Footer */
     .footer { background: var(--bg-dk); border-top: 1px solid var(--brd-dk); padding: 48px 48px 36px; }
@@ -265,7 +274,7 @@
     .exit-trust { font-size: 11px; color: var(--txt-dk2); text-align: center; margin-top: 10px; letter-spacing: .04em; }
     .exit-confirmed { text-align: center; padding: 20px 0; }
 
-    /* CTA modal */
+    /* CTA modal — 4-step */
     .m-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(10,10,11,.82); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; padding: 20px; animation: fadeIn .22s ease; }
     .m-overlay.hidden { display: none; }
     .m-box { background: #fff; color: var(--txt-lt); max-width: 500px; width: 100%; padding: 48px; position: relative; max-height: 90vh; overflow-y: auto; animation: slideUp .28s cubic-bezier(.4,0,.2,1); }
@@ -294,6 +303,8 @@
     .m-confirm-sub strong { color: var(--txt-lt); font-weight: 600; }
     .m-step { display: none; }
     .m-step.active { display: block; }
+    .m-back { background: none; border: none; font-family: var(--fb); font-size: 13px; color: var(--txt-lt2); cursor: pointer; padding: 0; margin-bottom: 20px; display: flex; align-items: center; gap: 5px; transition: color .15s; }
+    .m-back:hover { color: var(--txt-lt); }
 
     @keyframes fadeIn { from{opacity:0} to{opacity:1} }
     @keyframes slideUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
@@ -316,7 +327,7 @@
       .ben-item { border-right: none !important; }
       .ben-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--brd-dk); }
       .ben-item:last-child { border-bottom: none; }
-      .testi-grid { grid-template-columns: 1fr; }
+      .auth-grid { grid-template-columns: 1fr; }
       .cmp-head, .cmp-cell { padding: 14px 18px; font-size: 13px; }
       .scar-inner { flex-direction: column; gap: 8px; text-align: center; }
       .scar-count { font-size: 80px; }
@@ -324,6 +335,7 @@
       .m-box, .tpop-box, .exit-box { padding: 32px 24px; }
       .mob-bar { display: block; }
       .hero .btn-primary { width: 100%; justify-content: center; padding: 18px; font-size: 16px; }
+      .guarantee { flex-direction: column; gap: 12px; padding: 22px; }
     }
     @media (max-width: 400px) {
       .hero-hl { font-size: 44px; }
@@ -334,13 +346,13 @@
 </head>
 <body>
 
-<!-- Sticky availability bar — TODO: update "7" manually each week -->
+<!-- Sticky availability bar -->
 <div class="stick-bar">
   <div class="sb-dot"></div>
   <p class="sb-text">
-    <strong>Free Mockups This Week:</strong> 7 of 10 left.
+    <strong>Free Mockup Slots This Week:</strong> 7 of 10 still open &mdash; closes Friday.
   </p>
-  <a class="sb-link" onclick="openModal()">Get My Free Mockup &rarr;</a>
+  <a class="sb-link" onclick="openModal()">Claim My Spot &rarr;</a>
 </div>
 
 <nav class="nav" id="mainNav">
@@ -352,20 +364,26 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <p class="hero-eyebrow">For US-Based Local Service Businesses</p>
+      <p class="hero-eyebrow">For HVAC, Plumbing, Legal &amp; Local Service Businesses</p>
       <h1 class="hero-hl">
-        Get a Custom Website<br>
-        Mockup in <span class="ac">48 Hours</span>.<br>
-        <span class="ac">Free.</span>
+        Stop Losing Jobs<br>
+        To Competitors<br>
+        <span class="ac">With Better Websites.</span>
       </h1>
     </div>
     <div class="hero-bottom">
       <div>
         <p class="hero-sub">
-          Tell us your business. In <strong>48 hours</strong> we'll send you a real, clickable website mockup &mdash; designed for your industry, your city, your customers. Love it? Make it live for <strong>$100/month, all-in</strong> &mdash; hosting, updates, security, the works. Don't love it? <strong>Pay nothing. Walk away.</strong>
+          Every week your business runs without a converting website, your competitors book those calls instead. <strong>See your new site in 48 hours &mdash; free.</strong> Designed for your industry, your city, your customers. Love it? <strong>$100/month, all-in.</strong> Don't? Walk away. You owe nothing.
         </p>
+        <div class="hero-trust-strip">
+          <span class="hero-trust-item">48h Delivery Guarantee</span>
+          <span class="hero-trust-item">$0 Until You Approve</span>
+          <span class="hero-trust-item">10-Slot Weekly Cap</span>
+          <span class="hero-trust-item">No Contract to Start</span>
+        </div>
         <button class="btn btn-primary" onclick="openModal()">Get My Free Mockup &rarr;</button>
-        <p class="hero-trust">No credit card today &nbsp;&middot;&nbsp; No contract today &nbsp;&middot;&nbsp; 48h delivery</p>
+        <p class="hero-trust">No credit card today &nbsp;&middot;&nbsp; No commitment today &nbsp;&middot;&nbsp; 48h delivery</p>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-n">48h</div><div class="hero-stat-l">Mockup Delivery</div></div>
@@ -421,23 +439,27 @@
     <div class="steps reveal">
       <div class="step">
         <div class="step-n">1</div>
-        <div class="step-title">Send Us a URL + Email</div>
-        <p class="step-body">Drop your current site (or "none" if you don't have one) and a contact email. Tell us your industry. Takes five seconds. Costs $0.</p>
+        <div class="step-title">Tell Us Your Business</div>
+        <p class="step-body">Pick your industry, drop your zip code, and tell us where your site stands today. Takes 60 seconds. Costs $0. No credit card, no phone call.</p>
       </div>
       <div class="step">
         <div class="step-n">2</div>
         <div class="step-title">We Build a Real Mockup in 48 Hours</div>
-        <p class="step-body">Not a template. Not a Figma frame. A real, clickable preview of your future site &mdash; designed for your industry, your city, your customers. Delivered to your inbox within 48 hours.</p>
+        <p class="step-body">Not a template. Not a Figma frame. A real, clickable preview of your future site &mdash; designed for your industry, your city, your customers. We walk you through it personally via video so you see exactly what we built and why.</p>
         <span class="step-pill">48 hrs &middot; $0</span>
       </div>
       <div class="step">
         <div class="step-n">3</div>
         <div class="step-title">Approve It &mdash; or Walk Away</div>
-        <p class="step-body">Love it? We make it live for $100/month, all-in &mdash; hosting, updates, security included. Don't love it? Reply "pass." You owe us nothing. Ever.</p>
+        <p class="step-body">Love it? Approve within 72 hours and go live for $100/month, all-in &mdash; hosting, updates, security included. Don't love it? Reply "pass." You owe us nothing. Ever.</p>
         <span class="step-pill">$100/mo &middot; or $0</span>
       </div>
     </div>
-    <div style="text-align:center"><button class="btn btn-primary" onclick="openModal()">Get My Free Mockup &rarr;</button></div>
+    <div class="guarantee">
+      <div class="guarantee-icon">$0</div>
+      <p class="guarantee-text"><strong>Don't love your mockup? Pay nothing. Walk away. Risk-free.</strong> We absorb the build cost. You only pay when you decide to go live. That's the whole deal.</p>
+    </div>
+    <div style="text-align:center;margin-top:48px"><button class="btn btn-primary" onclick="openModal()">Get My Free Mockup &rarr;</button></div>
   </div>
 </section>
 
@@ -460,11 +482,10 @@
 </section>
 
 <!-- EXAMPLE MOCKUPS -->
-<!-- TODO: Replace placeholder mockup blocks with real screenshots in /images/mockup-*.jpg -->
 <section class="sec sec-dk2">
   <div class="sec-inner">
-    <span class="sec-label">Recent Mockups</span>
-    <h2 class="sec-hl">Real Mockups.<br>Built Last Week.</h2>
+    <span class="sec-label">Design Showcase</span>
+    <h2 class="sec-hl">What We Build<br>For Your Industry.</h2>
     <div class="work-grid reveal">
       <div class="work-card">
         <div class="work-mock">
@@ -475,13 +496,15 @@
             <div class="work-mock-l s"></div>
             <div class="work-mock-blk"></div>
           </div>
-          <span class="work-mock-ph">Preview</span>
+          <span class="work-mock-concept">CONCEPT</span>
+          <span class="work-mock-ph">Speculative Work</span>
         </div>
         <div class="work-info">
           <p class="work-cat">Solo Practitioner &middot; Austin, TX</p>
-          <h3 class="work-title">Lawyer in Austin</h3>
-          <p class="work-desc">A 5-section lead-gen site for a personal-injury attorney. Booking calendar wired to the hero. Mobile-first. Delivered Wednesday.</p>
+          <h3 class="work-title">Personal Injury Attorney</h3>
+          <p class="work-desc">5-section lead-gen site with booking calendar wired to the hero. Click-to-call above the fold. Mobile-first. Built to convert first-time visitors into consultation requests.</p>
         </div>
+        <p class="work-ftc">Concept design &mdash; not an actual client project. Created to illustrate our design approach.</p>
       </div>
       <div class="work-card">
         <div class="work-mock">
@@ -492,13 +515,15 @@
             <div class="work-mock-l s"></div>
             <div class="work-mock-blk"></div>
           </div>
-          <span class="work-mock-ph">Preview</span>
+          <span class="work-mock-concept">CONCEPT</span>
+          <span class="work-mock-ph">Speculative Work</span>
         </div>
         <div class="work-info">
           <p class="work-cat">Home Services &middot; Phoenix, AZ</p>
-          <h3 class="work-title">Plumber in Phoenix</h3>
-          <p class="work-desc">"Call Now" pinned everywhere. Service-area map, after-hours emergency line, transparent pricing tiles. Delivered Thursday.</p>
+          <h3 class="work-title">Emergency Plumber</h3>
+          <p class="work-desc">"Call Now" pinned everywhere. Service-area map, after-hours emergency line, transparent pricing tiles. Every element designed to get the phone ringing &mdash; day or night.</p>
         </div>
+        <p class="work-ftc">Concept design &mdash; not an actual client project. Created to illustrate our design approach.</p>
       </div>
       <div class="work-card">
         <div class="work-mock">
@@ -509,16 +534,19 @@
             <div class="work-mock-l s acc"></div>
             <div class="work-mock-blk"></div>
           </div>
-          <span class="work-mock-ph">Preview</span>
+          <span class="work-mock-concept">CONCEPT</span>
+          <span class="work-mock-ph">Speculative Work</span>
         </div>
         <div class="work-info">
           <p class="work-cat">Healthcare &middot; Chicago, IL</p>
-          <h3 class="work-title">Dental Practice in Chicago</h3>
-          <p class="work-desc">Insurance-accepted list above the fold, new-patient form, before/after gallery for cosmetic work. Delivered Friday.</p>
+          <h3 class="work-title">Dental Practice</h3>
+          <p class="work-desc">Insurance-accepted list above the fold, new-patient form, before/after gallery for cosmetic work. Designed to convert search traffic into booked appointments automatically.</p>
         </div>
+        <p class="work-ftc">Concept design &mdash; not an actual client project. Created to illustrate our design approach.</p>
       </div>
     </div>
-    <p class="work-caption">Real mockups we delivered last week. <strong>Yours will be just as custom.</strong></p>
+    <p class="work-ftc-note">These are speculative designs created by EverAdam to showcase our capabilities. We are currently onboarding our first paying clients. Brand names and business details are fictional. No client relationship is implied.</p>
+    <p class="work-caption" style="margin-top:16px">Your mockup will be built to the same standard &mdash; <strong>custom for your business, your city, your industry.</strong></p>
   </div>
 </section>
 
@@ -528,59 +556,43 @@
     <span class="sec-label">What You Get</span>
     <h2 class="sec-hl">Everything You<br>Need. Nothing<br>You Don't.</h2>
     <div class="ben-grid reveal">
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Lightning-Fast Load Times</div><div class="ben-desc">Sub-2s loads, Core Web Vitals tuned.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Mobile-First Design</div><div class="ben-desc">Built for the 70%+ on phones.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Lead-Generation Focused</div><div class="ben-desc">Every element drives one action: contact you.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Conversion-Optimized Copy</div><div class="ben-desc">We write the words. No filler.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">SEO-Ready Structure</div><div class="ben-desc">Clean HTML, proper headings, meta &mdash; built in.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Hosting + SSL Included</div><div class="ben-desc">Enterprise infrastructure. No extra accounts.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Unlimited Content Updates</div><div class="ben-desc">Email us, it's done.</div></div></div>
-      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Your Domain Stays Yours</div><div class="ben-desc">Registered in your name. Always.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Lightning-Fast Load Times</div><div class="ben-desc">Sub-2s loads, Core Web Vitals tuned. Slow sites lose jobs &mdash; fast sites keep them.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Mobile-First Design</div><div class="ben-desc">Built for the 70%+ of visitors on phones. Click-to-call above the fold.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Lead-Generation Focused</div><div class="ben-desc">Every element drives one action: contact you. No distractions.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Conversion-Optimized Copy</div><div class="ben-desc">We write the words. No filler, no jargon &mdash; language that gets calls.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">SEO-Ready Structure</div><div class="ben-desc">Clean HTML, proper headings, meta tags &mdash; built in from day one.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Hosting + SSL Included</div><div class="ben-desc">Enterprise infrastructure. No extra accounts, no control panels, no surprises.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Unlimited Content Updates</div><div class="ben-desc">Email us the change, it gets done. No tickets, no hourly billing.</div></div></div>
+      <div class="ben-item"><div class="ben-check"><svg width="10" height="9" viewBox="0 0 10 9" fill="none"><path d="M1.5 4.5 4 7 8.5 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="ben-title">Your Domain Stays Yours</div><div class="ben-desc">Registered in your name. Always. If you ever leave, it leaves with you.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- AUTHORITY — replaces fake testimonials -->
 <section class="sec sec-dk">
   <div class="sec-inner">
-    <span class="sec-label">What Clients Say</span>
-    <h2 class="sec-hl">Real Clients.<br>Real Words.</h2>
-    <div class="testi-grid reveal">
-      <div class="testi-card">
-        <p class="testi-placeholder">&#9888; Replace with real client quote</p>
-        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testi-quote">"Mockup landed in my inbox in under two days &mdash; exactly what we'd asked for. The $100/month bill is the only one I never argue about. Updates that used to take a week now take an afternoon."</p>
-        <div class="testi-author">
-          <div class="testi-avi">[ ]</div>
-          <div>
-            <div class="testi-name">[Client Name]</div>
-            <div class="testi-role">[Industry] &middot; [City, ST]</div>
-          </div>
-        </div>
+    <span class="sec-label">Why EverAdam</span>
+    <h2 class="sec-hl">Built Different.<br>For a Reason.</h2>
+    <div class="auth-grid reveal">
+      <div class="auth-card">
+        <div class="auth-num">01</div>
+        <div class="auth-title">Vertical Specialists</div>
+        <p class="auth-body">We don't build portfolio sites, e-commerce shops, or SaaS dashboards. We build one thing: conversion-optimized websites for US local service businesses &mdash; plumbers, HVAC, electricians, roofers, attorneys, dental practices. That focus means every template, every copy block, every CTA is dialed for your industry.</p>
       </div>
-      <div class="testi-card">
-        <p class="testi-placeholder">&#9888; Replace with real client quote</p>
-        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testi-quote">"I had a $9,400 quote from another shop sitting on my desk. EverAdam sent a mockup in 47 hours and asked for nothing until I said yes. Three months in, the phone hasn't stopped."</p>
-        <div class="testi-author">
-          <div class="testi-avi">[ ]</div>
-          <div>
-            <div class="testi-name">[Client Name]</div>
-            <div class="testi-role">[Industry] &middot; [City, ST]</div>
-          </div>
-        </div>
+      <div class="auth-card">
+        <div class="auth-num">02</div>
+        <div class="auth-title">Design Before Invoice</div>
+        <p class="auth-body">We deliver the finished mockup before asking for a cent. Not a wireframe. Not a sketch. A real, clickable preview of your future site &mdash; designed for your city and your industry &mdash; with a personal video walkthrough so you understand exactly what we built and why.</p>
       </div>
-      <div class="testi-card">
-        <p class="testi-placeholder">&#9888; Replace with real client quote</p>
-        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testi-quote">"What sold me was how upfront they were about the contract terms. Anyone willing to spell that out on the homepage usually has nothing to hide. Mockup nailed it on the first pass."</p>
-        <div class="testi-author">
-          <div class="testi-avi">[ ]</div>
-          <div>
-            <div class="testi-name">[Client Name]</div>
-            <div class="testi-role">[Industry] &middot; [City, ST]</div>
-          </div>
-        </div>
+      <div class="auth-card">
+        <div class="auth-num">03</div>
+        <div class="auth-title">No Long-Term Trap</div>
+        <p class="auth-body">6-month minimum after you go live &mdash; that's how we cover build costs when you paid $0 upfront. After that, cancel with 30 days' notice. No retention calls, no auto-renewals, no "speak to a manager" loops. Just an email to <a href="mailto:contact@everadam.com" style="color:var(--accent)">contact@everadam.com</a> and we handle the rest.</p>
+      </div>
+      <div class="auth-card">
+        <div class="auth-num">04</div>
+        <div class="auth-title">You See It First</div>
+        <p class="auth-body">You approve the mockup before a single dollar changes hands. If you don't love it, walk away. No awkward calls, no "but we worked so hard on it" emails. Just: "Pass." No charge, no follow-up, no hard feelings. That's the whole deal &mdash; and it's the reason we can promise 48 hours.</p>
       </div>
     </div>
   </div>
@@ -618,26 +630,26 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>How is hosting really "included"?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><p>Your site lives on our enterprise hosting account, in a US data center. You don't sign up for a separate hosting service, you don't pay AWS or GoDaddy on the side, you don't manage a control panel. Hosting, SSL, backups, monitoring &mdash; it's all bundled into your one monthly invoice.</p></div>
+        <div class="faq-a"><p>Your site lives on our enterprise hosting account, in a US data center. You don't sign up for a separate hosting service, you don't pay AWS or GoDaddy on the side, you don't manage a control panel. Hosting, SSL, backups, monitoring &mdash; all bundled into your one monthly invoice.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>Can I cancel anytime?</span><svg class="faq-icon" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><p>After the <strong>6-month minimum</strong>, yes &mdash; with <strong>30 days' notice</strong>. Email <a href="mailto:contact@everadam.com">contact@everadam.com</a> and we handle the rest. No retention call, no "are you sure" loop. On cancellation, the site goes offline at the end of the notice period &mdash; or you can pay the $497 export fee and keep the code.</p></div>
+        <div class="faq-a"><p>After the <strong>6-month minimum</strong>, yes &mdash; with <strong>30 days' notice</strong>. Email <a href="mailto:contact@everadam.com">contact@everadam.com</a> and we handle the rest. No retention call, no "are you sure" loop. Site goes offline at the end of the notice period &mdash; or pay the $497 export fee and keep the code.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- URGENCY / FINAL CTA -->
+<!-- URGENCY / SCARCITY -->
 <section class="sec sec-accent">
   <div class="sec-inner">
     <div class="scar-inner">
       <div class="scar-count">7</div>
       <div>
-        <div class="scar-warn">&#9888; This week's free mockups</div>
+        <div class="scar-warn">&#9888; This week's free mockup slots</div>
         <h2 class="scar-hl">Of 10 Slots<br>Still Open.</h2>
-        <p class="scar-body">We hand-build every mockup, so we cap free mockups at <strong>10 per week</strong> &mdash; that's our actual delivery limit, not a marketing line. When this week's slots fill, you go on next week's list.</p>
-        <button class="btn btn-inv" onclick="openModal()">Get My Free Mockup &rarr;</button>
+        <p class="scar-body">We hand-build every mockup, so we cap free slots at <strong>10 per week</strong> &mdash; that's our actual delivery limit, not a marketing line. When this week's slots fill, you go on next week's list. Every week you wait is another week competitors rank above you.</p>
+        <button class="btn btn-inv" onclick="openModal()">Claim My Slot &rarr;</button>
       </div>
     </div>
   </div>
@@ -667,7 +679,7 @@
       </div>
     </div>
     <button class="footer-cta-btn" onclick="openModal()">Get My Free Mockup &rarr;</button>
-    <p class="footer-legal">&copy; 2026 EverAdam. All rights reserved. EverAdam provides design, hosting, and maintenance for one-page small-business websites under a $100/month subscription with a 6-month minimum term. See <a href="/terms.html" style="color:var(--accent);text-decoration:none">Terms</a> for full details.</p>
+    <p class="footer-legal">&copy; 2026 EverAdam. All rights reserved. EverAdam provides design, hosting, and maintenance for one-page small-business websites under a $100/month subscription with a 6-month minimum term. Mockup designs shown on this page are speculative work created to showcase capabilities and do not represent actual client projects. See <a href="/terms.html" style="color:var(--accent);text-decoration:none">Terms</a> for full details.</p>
   </div>
 </footer>
 
@@ -681,11 +693,11 @@
 <div class="tpop-ov hidden" id="timedPopup">
   <div class="tpop-box">
     <button class="tpop-close" onclick="closeTimedPopup()">&#10005;</button>
-    <p class="tpop-tag">One Quick Reminder</p>
-    <h3 class="tpop-hl">Still On<br>The Fence?</h3>
+    <p class="tpop-tag">Quick Reminder</p>
+    <h3 class="tpop-hl">Every Week<br>Costs You.</h3>
     <div class="tpop-rule"></div>
-    <p class="tpop-body">Here's the math: <strong>$0 today.</strong> We build your mockup. You review it. Love it? <strong>$100/month, all-in.</strong> Don't? Walk away. You owe us <strong>nothing</strong>.</p>
-    <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:18px" onclick="closeTimedPopup(); openModal()">Get My Free Mockup &rarr;</button>
+    <p class="tpop-body">While you're reading this, competitors with better websites are answering calls that should be yours. The mockup is <strong>$0.</strong> You only pay if you love it &mdash; <strong>$100/month, all-in.</strong></p>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:18px" onclick="closeTimedPopup(); openModal()">Claim My Free Mockup &rarr;</button>
     <p class="tpop-trust">No credit card today &nbsp;&middot;&nbsp; 48h delivery</p>
   </div>
 </div>
@@ -695,12 +707,12 @@
   <div class="exit-box">
     <button class="exit-close" onclick="closeExitModal()">&#10005;</button>
     <div id="exitContent">
-      <p class="exit-tag">Wait &mdash; Before You Go</p>
-      <h3 class="exit-hl">Lock In<br>A Free<br>Mockup.</h3>
-      <p class="exit-sub">Save your spot for this week's free mockups &mdash; <strong>no payment, no commitment.</strong> Drop your name and email and we'll hold a slot.</p>
+      <p class="exit-tag">Before You Go</p>
+      <h3 class="exit-hl">Hold Your<br>Spot.</h3>
+      <p class="exit-sub">Only 7 free slots left this week. Drop your email &mdash; <strong>no payment, no commitment</strong> &mdash; and we'll hold one for you for 48 hours.</p>
       <input class="exit-input" type="text" id="exitName" placeholder="Your name" oninput="validateExitEmail()">
       <input class="exit-input" type="email" id="exitEmail" placeholder="your@email.com" oninput="validateExitEmail()">
-      <button class="exit-submit" id="exitSubmit" disabled onclick="submitExitEmail()">Get My Free Mockup &rarr;</button>
+      <button class="exit-submit" id="exitSubmit" disabled onclick="submitExitEmail()">Hold My Slot &rarr;</button>
       <p class="exit-trust">No spam &nbsp;&middot;&nbsp; No card &nbsp;&middot;&nbsp; Slot held for 48 hours</p>
     </div>
     <div id="exitConfirmed" style="display:none" class="exit-confirmed">
@@ -712,7 +724,7 @@
   </div>
 </div>
 
-<!-- CTA Modal (3-step) -->
+<!-- CTA Modal — 4 Steps -->
 <div class="m-overlay hidden" id="ctaModal">
   <div class="m-box">
     <button class="m-close" onclick="closeModal()">&#10005;</button>
@@ -720,43 +732,70 @@
       <div class="m-dot on" id="dot1"></div>
       <div class="m-dot" id="dot2"></div>
       <div class="m-dot" id="dot3"></div>
+      <div class="m-dot" id="dot4"></div>
     </div>
 
     <!-- Step 1: Industry -->
     <div class="m-step active" id="mStep1">
-      <p class="m-tag">Step 1 of 3 &mdash; One Click</p>
+      <p class="m-tag">Step 1 of 4 &mdash; One Click</p>
       <h3 class="m-hl">What's Your<br>Industry?</h3>
       <p class="m-sub">No typing yet. Pick one to start.</p>
+      <button class="m-pill" onclick="pickIndustry('hvac', this)">HVAC</button>
+      <button class="m-pill" onclick="pickIndustry('plumbing', this)">Plumbing</button>
+      <button class="m-pill" onclick="pickIndustry('electrical', this)">Electrical</button>
+      <button class="m-pill" onclick="pickIndustry('roofing', this)">Roofing</button>
       <button class="m-pill" onclick="pickIndustry('legal', this)">Legal</button>
-      <button class="m-pill" onclick="pickIndustry('home-services', this)">Home Services (HVAC, Plumbing, etc.)</button>
-      <button class="m-pill" onclick="pickIndustry('healthcare', this)">Healthcare / Dental</button>
+      <button class="m-pill" onclick="pickIndustry('healthcare-dental', this)">Healthcare / Dental</button>
       <button class="m-pill" onclick="pickIndustry('real-estate', this)">Real Estate</button>
-      <button class="m-pill" onclick="pickIndustry('coaching-consulting', this)">Coaching / Consulting</button>
-      <button class="m-pill" onclick="pickIndustry('other', this)">Other</button>
+      <button class="m-pill" onclick="pickIndustry('other', this)">Other Local Service</button>
     </div>
 
-    <!-- Step 2: Name + URL + Email -->
+    <!-- Step 2: Service Area -->
     <div class="m-step" id="mStep2">
-      <p class="m-tag">Step 2 of 3 &mdash; Almost There</p>
+      <button class="m-back" onclick="setModalStep(1)">&#8592; Back</button>
+      <p class="m-tag">Step 2 of 4 &mdash; Quick</p>
+      <h3 class="m-hl">What City<br>Do You Serve?</h3>
+      <p class="m-sub">Your mockup will be built for your market &mdash; not a generic template.</p>
+      <label class="m-label">City &amp; State (or Zip Code) *</label>
+      <input class="m-input" type="text" id="modalArea" placeholder="e.g. Dallas, TX or 75001" oninput="validateAreaStep()">
+      <button class="m-btn" id="areaNext" disabled onclick="nextToStep3()">Continue &rarr;</button>
+    </div>
+
+    <!-- Step 3: Website Status -->
+    <div class="m-step" id="mStep3">
+      <button class="m-back" onclick="setModalStep(2)">&#8592; Back</button>
+      <p class="m-tag">Step 3 of 4 &mdash; One Click</p>
+      <h3 class="m-hl">Where's Your<br>Website Now?</h3>
+      <p class="m-sub">Honest answer helps us build you the right mockup.</p>
+      <button class="m-pill" onclick="pickStatus('no-site', this)">No website yet</button>
+      <button class="m-pill" onclick="pickStatus('outdated', this)">Have one, but it's outdated</button>
+      <button class="m-pill" onclick="pickStatus('not-converting', this)">Site exists, just doesn't get calls</button>
+      <button class="m-pill" onclick="pickStatus('unknown', this)">Not sure / inherited it</button>
+    </div>
+
+    <!-- Step 4: Contact Info -->
+    <div class="m-step" id="mStep4">
+      <button class="m-back" onclick="setModalStep(3)">&#8592; Back</button>
+      <p class="m-tag">Step 4 of 4 &mdash; Almost Done</p>
       <h3 class="m-hl">Where Do We<br>Send Your<br>Mockup?</h3>
-      <p class="m-sub">Three quick fields. We'll deliver within 48 hours.</p>
+      <p class="m-sub">Two required fields. Mockup delivered within 48 hours.</p>
       <label class="m-label">Your Name *</label>
       <input class="m-input" type="text" id="modalName" placeholder="Jane Doe" oninput="validateModalForm()">
-      <label class="m-label">Current Website URL</label>
-      <input class="m-input" type="text" id="modalUrl" placeholder="yourbusiness.com" oninput="validateModalForm()">
-      <p class="m-hint">Don't have one? Type "none" &mdash; we'll start from scratch.</p>
       <label class="m-label">Email Address *</label>
       <input class="m-input" type="email" id="modalEmail" placeholder="you@company.com" oninput="validateModalForm()">
+      <label class="m-label">Current Website URL</label>
+      <input class="m-input" type="text" id="modalUrl" placeholder="yourbusiness.com (or leave blank)">
+      <p class="m-hint">No site? Leave it blank &mdash; we'll start from scratch.</p>
       <button class="m-btn" id="modalSubmit" disabled onclick="submitModal()">Get My Free Mockup &rarr;</button>
       <p style="margin-top:10px;font-size:12px;color:var(--txt-lt2);text-align:center">No credit card. No commitment. 48h delivery.</p>
     </div>
 
-    <!-- Step 3: Confirmation -->
+    <!-- Confirmation -->
     <div class="m-step" id="mConfirm">
       <div style="text-align:center;padding:16px 0">
         <div class="m-confirm-icon"><svg width="30" height="24" viewBox="0 0 30 24" fill="none"><path d="M2 12 11 21 28 3" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 class="m-confirm-hl">Mockup<br>In Progress.</h3>
-        <p class="m-confirm-sub" style="margin-top:12px">Delivery within <strong>48 hours</strong> to <strong id="modalConfirmedEmail"></strong>.<br><br>Reply to that email with anything specific you want us to nail &mdash; products, services, tone, must-haves.</p>
+        <p class="m-confirm-sub" style="margin-top:12px">Delivery within <strong>48 hours</strong> to <strong id="modalConfirmedEmail"></strong>.<br><br>Reply to that email with anything specific you want us to nail &mdash; services, tone, must-haves. <strong>Approve within 72 hours</strong> and lock in your $100/month rate.</p>
         <button class="m-btn" style="margin-top:32px" onclick="closeModal()">Close</button>
       </div>
     </div>
@@ -766,7 +805,7 @@
 <script>
   // ====== TICKER ======
   (function () {
-    const items = ['Free 48h Mockup','$0 Today','$100/mo All-In','No Setup Fee','Cancel After 6 Months','Hosting Included','Unlimited Updates','Mobile-First Build'];
+    const items = ['Free 48h Mockup','$0 Today','$100/mo All-In','No Setup Fee','Cancel After 6 Months','Hosting Included','Unlimited Updates','Mobile-First Build','No Lock-In to Start','4h Avg Reply Time'];
     const all = [...items, ...items];
     const track = document.getElementById('tickerTrack');
     all.forEach(t => {
@@ -821,7 +860,7 @@
   function closeTimedPopup() { document.getElementById('timedPopup').classList.add('hidden'); }
   document.getElementById('timedPopup').addEventListener('click', function (e) { if (e.target === this) closeTimedPopup(); });
 
-  // ====== EXIT INTENT: desktop mouseleave + mobile fast scroll-up >300px ======
+  // ====== EXIT INTENT ======
   (function () {
     const show = () => {
       if (sessionStorage.getItem('ea-exit') || sessionStorage.getItem('ea-popup')) return;
@@ -859,19 +898,15 @@
     const name = document.getElementById('exitName').value;
     const email = document.getElementById('exitEmail').value;
     const payload = Object.assign({
-      name: name,
-      email: email,
+      name: name, email: email,
       source: 'everadam-website-exit-popup',
       page: window.location.href
     }, getUtm());
-    fetch(/* REPLACE WITH PROXY ENDPOINT */ 'https://crm.webars.at/api/leads/everadam-website', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+    fetch('https://crm.webars.at/api/leads/everadam-website', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
     }).catch(() => {});
     if (typeof gtag !== 'undefined') {
       gtag('event', 'generate_lead', { event_category: 'form', event_label: 'exit_popup' });
-      // TODO: replace AW-XXXXXXXXXX/XxxXxxXxxXxx with real Google Ads conversion ID + label
       gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXXX/XxxXxxXxxXxx' });
     }
     sessionStorage.setItem('ea-popup', '1');
@@ -882,24 +917,44 @@
     document.getElementById('exitConfirmed').style.display = 'block';
   }
 
-  // ====== CTA MODAL ======
+  // ====== CTA MODAL — 4-step ======
+  let _industry = '', _area = '', _status = '';
+
   function openModal() { document.getElementById('ctaModal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; setModalStep(1); }
   function closeModal() { document.getElementById('ctaModal').classList.add('hidden'); document.body.style.overflow = ''; }
   document.getElementById('ctaModal').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
 
   function setModalStep(step) {
     document.querySelectorAll('.m-step').forEach(s => s.classList.remove('active'));
-    const map = { 1: 'mStep1', 2: 'mStep2', 3: 'mConfirm' };
+    const map = { 1: 'mStep1', 2: 'mStep2', 3: 'mStep3', 4: 'mStep4', 5: 'mConfirm' };
     document.getElementById(map[step]).classList.add('active');
-    [1,2,3].forEach(i => { document.getElementById('dot' + i).classList.toggle('on', i <= step); });
+    [1,2,3,4].forEach(i => { document.getElementById('dot' + i).classList.toggle('on', i <= step && step < 5); });
   }
 
-  let _industry = '';
   function pickIndustry(val, el) {
     _industry = val;
     document.querySelectorAll('#mStep1 .m-pill').forEach(p => p.classList.remove('on'));
     if (el) el.classList.add('on');
     setTimeout(() => setModalStep(2), 280);
+  }
+
+  function validateAreaStep() {
+    const v = document.getElementById('modalArea').value.trim();
+    document.getElementById('areaNext').disabled = v.length < 2;
+  }
+
+  function nextToStep3() {
+    const v = document.getElementById('modalArea').value.trim();
+    if (!v) return;
+    _area = v;
+    setModalStep(3);
+  }
+
+  function pickStatus(val, el) {
+    _status = val;
+    document.querySelectorAll('#mStep3 .m-pill').forEach(p => p.classList.remove('on'));
+    if (el) el.classList.add('on');
+    setTimeout(() => setModalStep(4), 280);
   }
 
   function validateModalForm() {
@@ -915,21 +970,19 @@
     const btn = document.getElementById('modalSubmit');
     btn.disabled = true; btn.textContent = 'Sending…';
     const payload = Object.assign({
-      name: name,
-      email: email,
+      name: name, email: email,
       current_url: url || 'none',
       industry: _industry,
+      service_area: _area,
+      website_status: _status,
       source: 'everadam-website-free-mockup',
       page: window.location.href
     }, getUtm());
-    fetch(/* REPLACE WITH PROXY ENDPOINT */ 'https://crm.webars.at/api/leads/everadam-website', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+    fetch('https://crm.webars.at/api/leads/everadam-website', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
     }).catch(() => {}).finally(() => {
       if (typeof gtag !== 'undefined') {
         gtag('event', 'generate_lead', { event_category: 'form', event_label: 'cta_modal_free_mockup' });
-        // TODO: replace AW-XXXXXXXXXX/XxxXxxXxxXxx with real Google Ads conversion ID + label
         gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXXX/XxxXxxXxxXxx' });
       }
       sessionStorage.setItem('ea-popup', '1');
@@ -937,7 +990,7 @@
       document.getElementById('timedPopup').classList.add('hidden');
       document.getElementById('exitModal').classList.add('hidden');
       document.getElementById('modalConfirmedEmail').textContent = email;
-      setModalStep(3);
+      setModalStep(5);
     });
   }
 </script>
