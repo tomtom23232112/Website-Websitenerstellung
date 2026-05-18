@@ -253,7 +253,7 @@ export default function Modal({ open, onClose }: ModalProps) {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="you@company.com"
+                            placeholder="your@email.com"
                             className="w-full border-2 border-gray-200 px-4 py-3 text-sm text-navy font-semibold focus:border-navy outline-none"
                           />
                         </div>

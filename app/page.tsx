@@ -34,7 +34,7 @@ export default function Home() {
       </main>
       <Footer />
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} />
-      <ExitPopup />
+      <ExitPopup modalOpen={modalOpen} />
     </>
   );
 }

@@ -8,7 +8,11 @@ function getUtm(): Record<string, string> {
   try { return JSON.parse(sessionStorage.getItem('ea-utm') || '{}'); } catch { return {}; }
 }
 
-export default function ExitPopup() {
+interface ExitPopupProps {
+  modalOpen: boolean;
+}
+
+export default function ExitPopup({ modalOpen }: ExitPopupProps) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -17,11 +21,12 @@ export default function ExitPopup() {
 
   const trigger = useCallback(() => {
     if (fired) return;
+    if (modalOpen) return;
     const dismissed = sessionStorage.getItem('ea-exit-dismissed');
     if (dismissed) return;
     setFired(true);
     setOpen(true);
-  }, [fired]);
+  }, [fired, modalOpen]);
 
   useEffect(() => {
     // Desktop: mouse leaves window top
@@ -114,8 +119,7 @@ export default function ExitPopup() {
                   </div>
 
                   <p className="text-xs text-gray-500 mb-4">
-                    Every week you wait = more jobs going to competitors with better websites.
-                    This takes 10 seconds.
+                    You came here for a reason. The mockup is free — you risk nothing by seeing it.
                   </p>
 
                   <form onSubmit={submit} className="flex flex-col gap-3">
@@ -140,7 +144,7 @@ export default function ExitPopup() {
                     onClick={dismiss}
                     className="w-full text-center text-xs text-gray-400 hover:text-gray-600 mt-3 cursor-pointer transition-colors"
                   >
-                    No thanks, I&apos;ll lose jobs to competitors instead
+                    No thanks
                   </button>
                 </>
               )}

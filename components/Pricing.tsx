@@ -11,8 +11,8 @@ const INCLUDED = [
   'Custom designed website (yours to keep)',
   'Professional launch & setup',
   'Mobile-optimized & SEO-ready',
-  'Up to 2 content updates per month',
-  'Security monitoring & SSL included',
+  '2 content updates included (no extra charge)',
+  'Security monitoring & SSL — covered',
   'Priority email support',
 ];
 
@@ -45,7 +45,7 @@ export default function Pricing({ onCTAClick }: PricingProps) {
               <span className="text-5xl font-black text-navy">$600</span>
               <span className="text-lg text-gray-500 font-semibold mb-1.5">flat</span>
             </div>
-            <div className="text-sm text-gray-500 mb-6">One-time fee. Everything included. No monthly surprises.</div>
+            <div className="text-sm text-gray-500 mb-6">One-time payment. <strong className="text-navy">No monthly bill. Ever.</strong></div>
 
             <div className="space-y-3 mb-8">
               {INCLUDED.map((item, i) => (

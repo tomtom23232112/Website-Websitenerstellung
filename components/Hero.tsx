@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SLOTS_OPEN } from '@/lib/data';
 
 interface HeroProps {
   onCTAClick: () => void;
@@ -43,11 +42,6 @@ export default function Hero({ onCTAClick }: HeroProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 bg-red-light border border-red/40 text-red text-xs font-black uppercase tracking-widest px-3 py-1.5 mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-red inline-block animate-pulse" />
-                Only {SLOTS_OPEN} Slots Open This Week
-              </div>
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-navy uppercase leading-none tracking-tight mb-6">
                 Stop Losing<br />Jobs To<br />
                 <span className="text-red">Competitors.</span>
@@ -55,7 +49,7 @@ export default function Hero({ onCTAClick }: HeroProps) {
 
               <p className="text-base text-gray-500 mb-8 max-w-md leading-relaxed">
                 We build a <strong className="text-navy">free custom mockup</strong> for your business in 48 hours.
-                You only pay if you love it — $0 upfront, no contracts.
+                Love it? <strong className="text-navy">$600 flat</strong> — pay only after you approve it. Don&apos;t love it? Walk away, owe nothing.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
