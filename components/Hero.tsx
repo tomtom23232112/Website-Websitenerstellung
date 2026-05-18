@@ -27,10 +27,6 @@ function MockupCard() {
         <div className="bg-gray-200 h-3 w-1/2 rounded-sm mb-4" />
         <div className="bg-red h-9 w-36 rounded-sm" />
       </div>
-      {/* FTC banner */}
-      <div className="bg-red-light border-t border-red/30 px-4 py-2 text-center">
-        <span className="text-xs text-red font-black tracking-wider uppercase">Concept — Not a Real Site</span>
-      </div>
     </div>
   );
 }

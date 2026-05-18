@@ -20,14 +20,6 @@ export default function Footer() {
           <p className="text-white/30 text-xs leading-relaxed">
             &copy; {new Date().getFullYear()} EverAdam. All rights reserved.
           </p>
-          <p className="text-white/25 text-xs leading-relaxed">
-            <strong className="text-white/40">FTC Disclosure:</strong> All website mockups and designs shown on this site are
-            original illustrative concepts created by EverAdam for demonstration purposes only. They are not representations
-            of live client websites, actual client results, or guaranteed outcomes. Individual results will vary based on
-            industry, service area, and business factors. The scarcity indicators (available slots) reflect EverAdam&apos;s
-            current production capacity and are updated weekly. In compliance with FTC 16 CFR Part 255 and 16 CFR Part 465,
-            no fictitious testimonials or fabricated endorsements are used on this site.
-          </p>
         </div>
       </div>
     </footer>
