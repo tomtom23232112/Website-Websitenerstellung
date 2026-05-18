@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PHONE, SLOTS_OPEN } from '@/lib/data';
+import { SLOTS_OPEN } from '@/lib/data';
 
 interface StickyBarProps {
   onCTAClick: () => void;
@@ -24,7 +24,7 @@ export default function StickyBar({ onCTAClick }: StickyBarProps) {
         <div className="fixed top-0 left-0 right-0 z-[60] bg-navy text-white text-xs font-bold flex items-center justify-center gap-4 px-4 py-2">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-red animate-pulse inline-block" />
-            Only {SLOTS_OPEN} free mockup slots left this week — closes Friday
+            Only {SLOTS_OPEN} free mockup slots left this week
           </span>
           <button
             onClick={onCTAClick}
@@ -42,23 +42,17 @@ export default function StickyBar({ onCTAClick }: StickyBarProps) {
         </div>
       )}
 
-      {/* Mobile sticky bottom CTA bar — visible after scrolling past hero */}
+      {/* Mobile sticky bottom CTA — visible after scrolling past hero */}
       <div
         className="fixed bottom-0 left-0 right-0 z-50 md:hidden transition-transform duration-300"
         style={{ transform: scrolled ? 'translateY(0)' : 'translateY(100%)' }}
       >
         <div className="bg-white border-t border-gray-200 px-4 py-3 flex items-center gap-3 shadow-2xl">
-          <a
-            href={`tel:${PHONE.replace(/\s/g, '')}`}
-            className="flex-1 border-2 border-navy text-navy text-xs font-black uppercase tracking-wider py-3 text-center"
-          >
-            📞 Call Now
-          </a>
           <button
             onClick={onCTAClick}
-            className="flex-1 bg-red text-white text-xs font-black uppercase tracking-wider py-3 cursor-pointer"
+            className="w-full bg-red text-white text-xs font-black uppercase tracking-wider py-3.5 cursor-pointer"
           >
-            Free Mockup →
+            Get My Free Mockup →
           </button>
         </div>
       </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PHONE } from '@/lib/data';
 
 interface HeaderProps {
   onCTAClick: () => void;
@@ -38,20 +37,12 @@ export default function Header({ onCTAClick }: HeaderProps) {
           </a>
         </nav>
 
-        <div className="flex items-center gap-5">
-          <a
-            href={`tel:${PHONE.replace(/\s/g, '')}`}
-            className="hidden md:block text-sm font-semibold text-gray-500 hover:text-navy transition-colors"
-          >
-            {PHONE}
-          </a>
-          <button
-            onClick={onCTAClick}
-            className="bg-red text-white text-xs font-black uppercase tracking-wider px-5 py-3 hover:bg-red-dark transition-colors cursor-pointer"
-          >
-            Free Mockup →
-          </button>
-        </div>
+        <button
+          onClick={onCTAClick}
+          className="bg-red text-white text-xs font-black uppercase tracking-wider px-5 py-3 hover:bg-red-dark transition-colors cursor-pointer"
+        >
+          Free Mockup →
+        </button>
       </div>
     </header>
   );

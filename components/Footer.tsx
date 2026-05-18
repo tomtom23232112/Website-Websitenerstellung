@@ -1,5 +1,3 @@
-import { PHONE } from '@/lib/data';
-
 export default function Footer() {
   return (
     <footer className="bg-navy py-12">
@@ -7,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-8">
           <div>
             <div className="text-white font-black text-base tracking-widest uppercase mb-2">EverAdam</div>
-            <div className="text-white/50 text-sm">{PHONE}</div>
+            <div className="text-white/40 text-xs">Websites for Local Service Businesses</div>
           </div>
           <div className="flex flex-wrap gap-6">
             <a href="/privacy/" className="text-white/40 text-xs hover:text-white/70 transition-colors">Privacy Policy</a>
@@ -15,9 +13,8 @@ export default function Footer() {
             <a href="#faq" className="text-white/40 text-xs hover:text-white/70 transition-colors">FAQ</a>
           </div>
         </div>
-
-        <div className="border-t border-white/10 pt-6 space-y-3">
-          <p className="text-white/30 text-xs leading-relaxed">
+        <div className="border-t border-white/10 pt-6">
+          <p className="text-white/30 text-xs">
             &copy; {new Date().getFullYear()} EverAdam. All rights reserved.
           </p>
         </div>

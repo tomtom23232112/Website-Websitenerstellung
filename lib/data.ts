@@ -1,4 +1,4 @@
-export const PHONE = '+1 (555) 000-0000';
+export const PHONE = '';
 export const CRM_ENDPOINT = 'https://crm.webars.at/api/leads/everadam-website';
 export const SLOTS_OPEN = 7;
 
@@ -88,12 +88,12 @@ export const FAQS = [
 ];
 
 export const AUTHORITY_BADGES = [
-  { label: 'Licensed & Insured', icon: '🛡️' },
-  { label: 'BBB Accredited Ready', icon: '✅' },
+  { label: 'Specialized in Trades', icon: '🛠️' },
   { label: '48h Delivery', icon: '⚡' },
   { label: 'No Contract', icon: '🤝' },
   { label: 'US-Based Team', icon: '🇺🇸' },
   { label: 'Mobile Optimized', icon: '📱' },
+  { label: 'SEO Ready', icon: '🔍' },
 ];
 
 export const MOCKUP_EXAMPLES = [
