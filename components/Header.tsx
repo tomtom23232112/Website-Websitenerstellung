@@ -18,8 +18,8 @@ export default function Header({ onCTAClick }: HeaderProps) {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300"
-      style={{ boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,.1)' : '0 1px 0 #e5e7eb' }}
+      className="fixed left-0 right-0 z-50 bg-white transition-all duration-300"
+      style={{ top: '32px', boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,.1)' : '0 1px 0 #e5e7eb' }}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <span className="text-navy font-black text-base tracking-widest uppercase">

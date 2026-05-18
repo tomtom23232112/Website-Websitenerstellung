@@ -37,7 +37,7 @@ function MockupCard() {
 
 export default function Hero({ onCTAClick }: HeroProps) {
   return (
-    <section className="pt-24 pb-16 bg-white border-b-4 border-navy">
+    <section className="pt-36 pb-16 bg-white border-b-4 border-navy">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-16">
           {/* Left: copy */}
@@ -70,6 +70,24 @@ export default function Hero({ onCTAClick }: HeroProps) {
                   Get My Free Mockup →
                 </button>
                 <span className="text-xs text-gray-400 font-semibold">No card &middot; No contract</span>
+              </div>
+
+              {/* 3-step mini process */}
+              <div className="flex items-center gap-3 mb-6 flex-wrap">
+                {[
+                  { n: '1', t: 'Tell us your trade', sub: '60 seconds' },
+                  { n: '2', t: 'We build your mockup', sub: '48 hours' },
+                  { n: '3', t: 'Love it or walk away', sub: '$0 risk' },
+                ].map((s, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-navy text-white text-xs font-black flex items-center justify-center shrink-0">{s.n}</div>
+                    <div>
+                      <div className="text-xs font-black text-navy leading-none">{s.t}</div>
+                      <div className="text-xs text-gray-400 leading-none">{s.sub}</div>
+                    </div>
+                    {i < 2 && <span className="text-gray-300 mx-1 font-black">→</span>}
+                  </div>
+                ))}
               </div>
 
               <div className="flex flex-wrap gap-x-5 gap-y-2">

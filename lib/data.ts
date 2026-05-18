@@ -7,6 +7,7 @@ export const INDUSTRIES = [
   { value: 'plumbing', label: 'Plumbing' },
   { value: 'electrical', label: 'Electrical' },
   { value: 'roofing', label: 'Roofing' },
+  { value: 'cleaning', label: 'Cleaning / Janitorial' },
   { value: 'legal', label: 'Legal' },
   { value: 'healthcare-dental', label: 'Healthcare / Dental' },
   { value: 'real-estate', label: 'Real Estate' },
@@ -84,6 +85,15 @@ export const FAQS = [
     q: 'Do you only work with certain industries?',
     a: 'We specialize in HVAC, plumbing, electrical, roofing, legal, healthcare, and real estate. If you\'re a local service business, we\'ve got you.',
   },
+];
+
+export const AUTHORITY_BADGES = [
+  { label: 'Licensed & Insured', icon: '🛡️' },
+  { label: 'BBB Accredited Ready', icon: '✅' },
+  { label: '48h Delivery', icon: '⚡' },
+  { label: 'No Contract', icon: '🤝' },
+  { label: 'US-Based Team', icon: '🇺🇸' },
+  { label: 'Mobile Optimized', icon: '📱' },
 ];
 
 export const MOCKUP_EXAMPLES = [
